@@ -6,6 +6,7 @@ const LINKS = [
   { label: "About", page: "about" },
   { label: "Skills", page: "skills" },
   { label: "Contact", page: "contact" },
+  { label: "publication", page: "publication"},
 ];
 
 export default function Nav({ page, navigate }) {

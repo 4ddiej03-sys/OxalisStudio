@@ -26,8 +26,20 @@ const FEATURED = [
     emoji: "🍹",
     year: "2026",
   },
-  {
+    {
     id: 3,
+    title: "Shohei Juku Aikido Canada",
+    subtitle: "Brand Identity",
+    tags: ["Branding", "Creative Direction", "Layout Design", "Photography", "Advertising"],
+    desc: "Elevating the visual voice of Shohei Juku Aikido Canada by harmonising tradition with modern engagement. Oxalis blends digital creativity and graphic discipline to oversee an ongoing narrative—from signature newsletter layouts to dynamic event photography that captures the fluid energy, power, and grace of the dojo.",
+    url: "#portfolio",
+    color: "#2d6a4f",
+    bg: "#f0f8f4",
+    emoji: "📰",
+    year: "2014",
+  },
+  {
+    id: 4,
     title: "Publication",
     subtitle: "Magazine Design. Layout Design",
     tags: ["Editorial", "Creative Direction", "Layout Design", "Editorial Photography"],
@@ -39,7 +51,7 @@ const FEATURED = [
     year: "2009",
   },
     {
-    id: 4,
+    id: 5,
     title: "J'Adore by Joe",
     subtitle: "Photography",
     tags: ["Portrait", "Events", "Product", "Commercials"],
@@ -51,7 +63,7 @@ const FEATURED = [
     year: "2009",
   },
   {
-    id: 5,
+    id: 6,
     title: "OXALIS Studio",
     subtitle: "Brand Identity",
     tags: ["Branding", "Creative Direction", "Web Design"],

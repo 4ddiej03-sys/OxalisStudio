@@ -29,7 +29,7 @@ export function PortfolioPage({ navigate }) {
       title: "Publications", subtitle: "Layout & Graphic Design",
       tags: ["Graphic Design", "Typography", "Photography", "Copywriting"],
       desc: "Creating Magazine Design for  ",
-      url: "#", emoji: "🌿", color: "#2d6a4f", bg: "#f0f8f4",
+      url: "#publication", emoji: "🌿", color: "#2d6a4f", bg: "#f0f8f4",
       highlights: ["6 SEO blog articles targeting food and cocktail keywords", "Multi-page React site with hash routing", "Full pricing and features documentation", "Mobile responsive across all breakpoints"],
     },
     {
@@ -287,8 +287,8 @@ export function ContactPage({ navigate }) {
 
             <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
               {[
-                { label: "General Enquiries", value: "support@che-af.vercel.app", href: "mailto:support@oxalisstudio.vercel.app" },
-                { label: "Instagram", value: "@cheaf_cooklikeyouknow", href: "https://www.instagram.com/cheaf_cooklikeyouknow" },
+                { label: "General Enquiries", value: "support@oxalisstudio.vercel.app", href: "mailto:support@oxalisstudio.vercel.app" },
+                { label: "Instagram", value: "@cheaf_cooklikeyouknow @mixr_shakewhatyouvegot", href: "https://www.instagram.com/cheaf_cooklikeyouknow https://www.instagram.com/mixr_shakewhatyouvegot" },
                 { label: "Che AF App", value: "che-af.vercel.app", href: "https://che-af.vercel.app" },
                 { label: "Mix-R App", value: "mix-r.vercel.app", href: "https://mix-r.vercel.app" },
               ].map((c, i) => (
