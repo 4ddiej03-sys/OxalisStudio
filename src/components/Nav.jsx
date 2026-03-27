@@ -3,10 +3,13 @@ import { useState, useEffect } from "react";
 
 const LINKS = [
   { label: "Work", page: "portfolio" },
+  { label: "Publication", page: "publication"},
+  { label: "SJAC", page: "sjac"},
+  { label: "J'Adore", page: "jadore"},
   { label: "About", page: "about" },
   { label: "Skills", page: "skills" },
   { label: "Contact", page: "contact" },
-  { label: "publication", page: "publication"},
+  
 ];
 
 export default function Nav({ page, navigate }) {

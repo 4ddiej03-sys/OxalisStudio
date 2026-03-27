@@ -44,7 +44,7 @@ const FEATURED = [
     subtitle: "Magazine Design. Layout Design",
     tags: ["Editorial", "Creative Direction", "Layout Design", "Editorial Photography"],
     desc: "Digital creativity meets graphic discipline. Crafting a collection of enduring, transcendent narratives through signature layout and design.",
-    url: "#portfolio",
+    url: "#publication",
     color: "#2d6a4f",
     bg: "#f0f8f4",
     emoji: "📚",

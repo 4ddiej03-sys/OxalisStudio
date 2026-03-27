@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Nav from "./components/Nav";
 import HomePage from "./pages/HomePage";
 import { Footer } from "./pages/OtherPages";
-import { AboutPage, PortfolioPage, SkillsPage, ContactPage } from "./pages/OtherPages";
+import { AboutPage, PortfolioPage, PublicationPage, SkillsPage, ContactPage } from "./pages/OtherPages";
 
 export default function App() {
   const [page, setPage] = useState("home");
@@ -27,6 +27,7 @@ export default function App() {
     home:      <HomePage navigate={navigate} />,
     about:     <AboutPage navigate={navigate} />,
     portfolio: <PortfolioPage navigate={navigate} />,
+    publication:<PublicationPage navigate={navigate} />,
     skills:    <SkillsPage navigate={navigate} />,
     contact:   <ContactPage navigate={navigate} />,
   };
