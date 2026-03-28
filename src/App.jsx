@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Nav from "./components/Nav";
 import HomePage from "./pages/HomePage";
 import { Footer } from "./pages/OtherPages";
-import { AboutPage, APPPage, PublicationPage, SJACPage, ADDIEPage, SkillsPage, ContactPage } from "./pages/OtherPages";
+import { AboutPage, APPPage, PublicationPage, SJACPage, AddiePage, JadorePage, SkillsPage, ContactPage } from "./pages/OtherPages";
 
 export default function App() {
   const [page, setPage] = useState("home");
@@ -29,7 +29,8 @@ export default function App() {
     app:        <APPPage navigate={navigate} />,
     publication:<PublicationPage navigate={navigate} />,
     sjac:       <SJACPage navigate={navigate} />,
-    addie:      <ADDIEPage navigate={navigate} />,
+    addie:      <AddiePage navigate={navigate} />,
+    jadore:     <JadorePage navigate={navigate} />,
     skills:     <SkillsPage navigate={navigate} />,
     contact:    <ContactPage navigate={navigate} />,
   };

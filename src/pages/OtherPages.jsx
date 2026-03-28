@@ -187,13 +187,13 @@ export function SJACPage({ navigate }) {
             <div style={{ width: 60, height: 1, background: "#1a1a1a", marginBottom: 40 }} />
             <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 24 }}>
               OXALIS Studio works and collaborate with the Chief of Instructor of Shohei Juku Aikido Canada since 2014.
-              We have been delivering the monthly newsletter for readers.
+              We have been delivering the monthly newsletter for readers, especially the connection between Japan and Canada.
             </p>
             <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 24 }}>
-              Our work spans app development, brand identity, advertising, UI/UX design and creative photography. We believe that the best design solves real problems, which is why accessibility is central to everything we build.
+              Our work spans newsletters, brand identity, advertisings, UI/UX design and creative photography.
             </p>
             <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 48 }}>
-              OXALIS Studio’s latest project was born from a frustration with food waste and a love of cooking. Che AF and Mix-R are the result: two AI-powered apps that help people cook and mix drinks from what they already have.
+              Creating shorts videos during pandemic promo to bring harmony of practice of non-contact basic principle.
             </p>
             <a href="mailto:support@che-af.vercel.app"
               style={{ fontFamily: sans, fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: "#1a1a1a", textDecoration: "none", borderBottom: "1px solid #1a1a1a", paddingBottom: 4 }}>
@@ -244,6 +244,185 @@ export function SJACPage({ navigate }) {
               { title: "Promo", desc: "A collection of stories from musicians to inspire other musicians.", icon: "🎷" },
               { title: "Cover Design", desc: "Book cover redesign for The Arabian Nights", icon: "🌍" },
               { title: "Aotearoa Tours", desc: "A travel magazine guide of travelling New Zealand.", icon: "🛫" }
+              
+            ].map((v, i) => (
+              <div key={i} style={{ padding: "48px 40px", background: "#1a1a1a" }}>
+                <span style={{ fontSize: 32, display: "block", marginBottom: 24 }}>{v.icon}</span>
+                <h3 style={{ fontFamily: serif, fontSize: 24, fontWeight: 600, color: "#f5f0e8", marginBottom: 16 }}>{v.title}</h3>
+                <p style={{ fontFamily: sans, fontSize: 14, color: "rgba(245,240,232,0.5)", lineHeight: 1.8 }}>{v.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+// src/pages/AddiePage.jsx
+export function AddiePage({ navigate }) {
+  const serif = "'Cormorant Garamond', Georgia, serif";
+  const sans  = "'DM Sans', system-ui, sans-serif";
+
+  return (
+    <div style={{ paddingTop: 72 }}>
+      <section style={{ padding: "100px 40px", background: "#fafaf8" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 100, alignItems: "start" }}>
+          <div>
+            <p style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 4, textTransform: "uppercase", color: "#888", marginBottom: 16 }}>A Restaurant Dining Experience</p>
+            <h1 style={{ fontFamily: serif, fontSize: "clamp(40px, 5vw, 72px)", fontWeight: 300, color: "#1a1a1a", lineHeight: 0.95, marginBottom: 40 }}>
+              The culinary<br /><em style={{ fontStyle: "italic", fontWeight: 700 }}>Diary</em>
+            </h1>
+            <div style={{ width: 60, height: 1, background: "#1a1a1a", marginBottom: 40 }} />
+            <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 24 }}>
+              A restaurant visit diary. Digital discipline meets culinary artistry.
+              Addie+ explores the synergy between presentation, service, and taste, capturing a singular perspective on the dining experience through refined narrative and visual storytelling.
+            </p>
+            <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 24 }}>
+              This is not sponsored by anyone. Merely a love of food cater by our great cooks from around the world. A taste of the world writen beautifuly for your reading pleasure.
+            </p>
+            <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 48 }}>
+              A love of cooking turns into a taste hunter for cultural culinary.
+            </p>
+            <a href="mailto:s1mply1rr3s1st4bl3@gmail.com"
+              style={{ fontFamily: sans, fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: "#1a1a1a", textDecoration: "none", borderBottom: "1px solid #1a1a1a", paddingBottom: 4 }}>
+              Get in Touch →
+            </a>
+          </div>
+
+          <div>
+            {/* Profile placeholder */}
+            <div style={{ background: "#f0f0ee", aspectRatio: "3/4", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 32, position: "relative", overflow: "hidden" }}>
+              <div style={{ textAlign: "center" }}>
+                <div style={{ fontSize: 80, marginBottom: 16 }}>🌿</div>
+                <p style={{ fontFamily: serif, fontSize: 18, color: "#aaa", fontStyle: "italic" }}>Agatha Joe</p>
+                <p style={{ fontFamily: sans, fontSize: 12, color: "#bbb", letterSpacing: 2, textTransform: "uppercase", marginTop: 4 }}>Creative Director</p>
+              </div>
+              <div style={{ position: "absolute", bottom: 20, right: 20, fontFamily: sans, fontSize: 11, color: "#bbb", letterSpacing: 1 }}>Photo coming soon</div>
+            </div>
+
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1, background: "rgba(0,0,0,0.04)" }}>
+              {[
+                { label: "Place", value: "Vancouver, Montreal, Japan" },
+                { label: "Since", value: "2018" },
+                { label: "Cuisine", value: "Japanese, French, Thai, Indian" },
+                { label: "Category", value: "Blog" },
+              ].map((item, i) => (
+                <div key={i} style={{ background: "#fafaf8", padding: "20px 24px" }}>
+                  <p style={{ fontFamily: sans, fontSize: 10, fontWeight: 500, letterSpacing: 3, textTransform: "uppercase", color: "#aaa", marginBottom: 6 }}>{item.label}</p>
+                  <p style={{ fontFamily: serif, fontSize: 16, color: "#1a1a1a" }}>{item.value}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section style={{ padding: "100px 40px", background: "#1a1a1a" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <p style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 4, textTransform: "uppercase", color: "#2d6a4f", marginBottom: 16 }}>Places that</p>
+          <h2 style={{ fontFamily: serif, fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 300, color: "#f5f0e8", lineHeight: 1, marginBottom: 72 }}>
+            We visited<br /><em style={{ fontStyle: "italic", fontWeight: 700 }}>so far</em>
+          </h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 2, background: "rgba(255,255,255,0.04)" }}>
+            {[
+              { title: "Kazu", desc: "Montreal, Japanese.", icon: "🍣" },
+              { title: "Momofuku", desc: "Toronto, Fusion.", icon: "🍜" },
+              { title: "Delara", desc: "Vancouver, Persian.", icon: "🧆" },
+              { title: "Origo", desc: "Vancouver, French.", icon: "🥖" },
+              { title: "East is East", desc: "Vancouver, Indian", icon: "🍛" },
+              { title: "Banana Leaf", desc: "Vancouver, Malaysian.", icon: "🍲" }
+              
+            ].map((v, i) => (
+              <div key={i} style={{ padding: "48px 40px", background: "#1a1a1a" }}>
+                <span style={{ fontSize: 32, display: "block", marginBottom: 24 }}>{v.icon}</span>
+                <h3 style={{ fontFamily: serif, fontSize: 24, fontWeight: 600, color: "#f5f0e8", marginBottom: 16 }}>{v.title}</h3>
+                <p style={{ fontFamily: sans, fontSize: 14, color: "rgba(245,240,232,0.5)", lineHeight: 1.8 }}>{v.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+// src/pages/JadorePage.jsx
+export function JadorePage({ navigate }) {
+  const serif = "'Cormorant Garamond', Georgia, serif";
+  const sans  = "'DM Sans', system-ui, sans-serif";
+
+  return (
+    <div style={{ paddingTop: 72 }}>
+      <section style={{ padding: "100px 40px", background: "#fafaf8" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 100, alignItems: "start" }}>
+          <div>
+            <p style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 4, textTransform: "uppercase", color: "#888", marginBottom: 16 }}>Photography</p>
+            <h1 style={{ fontFamily: serif, fontSize: "clamp(40px, 5vw, 72px)", fontWeight: 300, color: "#1a1a1a", lineHeight: 0.95, marginBottom: 40 }}>
+              J'Adore<br /><em style={{ fontStyle: "italic", fontWeight: 700 }}>by JOE</em>
+            </h1>
+            <div style={{ width: 60, height: 1, background: "#1a1a1a", marginBottom: 40 }} />
+            <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 24 }}>
+              OXALIS Studio's own photography service.
+              We have been taking beautiful people either for their wedding, birthday, event or portrait of individual or family.
+            </p>
+            <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 24 }}>
+              Capturing a side that you cannot see is our expertise. Just be yourself and we do the rest.
+              We let the nature provide as our studio and the beautiful weather as our lighting.
+            </p>
+            <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 48 }}>
+              We let the nature provide as our studio and the beautiful weather as our lighting. 
+            </p>  
+            <a href="mailto:$ddiej03@gmail.com"
+              style={{ fontFamily: sans, fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: "#1a1a1a", textDecoration: "none", borderBottom: "1px solid #1a1a1a", paddingBottom: 4 }}>
+              Get in Touch →
+            </a>
+          </div>
+
+          <div>
+            {/* Profile placeholder */}
+            <div style={{ background: "#f0f0ee", aspectRatio: "3/4", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 32, position: "relative", overflow: "hidden" }}>
+              <div style={{ textAlign: "center" }}>
+                <div style={{ fontSize: 80, marginBottom: 16 }}>🌿</div>
+                <p style={{ fontFamily: serif, fontSize: 18, color: "#aaa", fontStyle: "italic" }}>Agatha Joe</p>
+                <p style={{ fontFamily: sans, fontSize: 12, color: "#bbb", letterSpacing: 2, textTransform: "uppercase", marginTop: 4 }}>Creative Director</p>
+              </div>
+              <div style={{ position: "absolute", bottom: 20, right: 20, fontFamily: sans, fontSize: 11, color: "#bbb", letterSpacing: 1 }}>Photo coming soon</div>
+            </div>
+
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1, background: "rgba(0,0,0,0.04)" }}>
+              {[
+                { label: "Places", value: "New Zealand, Indonesia, Canada, Japan, France" },
+                { label: "Journey", value: "2009" },
+                { label: "Collection", value: "Event, Portrait, Travel" },
+                { label: "Catagory", value: "Blog" },
+              ].map((item, i) => (
+                <div key={i} style={{ background: "#fafaf8", padding: "20px 24px" }}>
+                  <p style={{ fontFamily: sans, fontSize: 10, fontWeight: 500, letterSpacing: 3, textTransform: "uppercase", color: "#aaa", marginBottom: 6 }}>{item.label}</p>
+                  <p style={{ fontFamily: serif, fontSize: 16, color: "#1a1a1a" }}>{item.value}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section style={{ padding: "100px 40px", background: "#1a1a1a" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <p style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 4, textTransform: "uppercase", color: "#2d6a4f", marginBottom: 16 }}>Our on-going</p>
+          <h2 style={{ fontFamily: serif, fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 300, color: "#f5f0e8", lineHeight: 1, marginBottom: 72 }}>
+            Projects<br /><em style={{ fontStyle: "italic", fontWeight: 700 }}>collaborated</em>
+          </h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 2, background: "rgba(255,255,255,0.04)" }}>
+            {[
+              { title: "Portrait", desc: "Newsletter Design produced monthly. Special event photogragrphy", icon: "🥋" },
+              { title: "Event", desc: "A branding project for burger joint in Hasting Sunrise, Vancouver.", icon: "🍔" },
+              { title: "Travel", desc: "A magazine for Women to empowered Women.", icon: "📚" },
+              { title: "Food", desc: "A collection of stories from musicians to inspire other musicians.", icon: "🎷" },
+              { title: "Street", desc: "Book cover redesign for The Arabian Nights", icon: "🌍" },
+              { title: "Product", desc: "A travel magazine guide of travelling New Zealand.", icon: "🛫" }
               
             ].map((v, i) => (
               <div key={i} style={{ padding: "48px 40px", background: "#1a1a1a" }}>

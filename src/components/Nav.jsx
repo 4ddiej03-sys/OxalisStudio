@@ -6,8 +6,8 @@ const LINKS = [
   { label: "Publication", page: "publication"},
   { label: "SJAC", page: "sjac"},
   { label: "J'Adore", page: "jadore"},
-  { labe:  "ADDIE+", page: "addie"},
-  { label: "About", page: "about" },
+  { label: "addie+", page: "addie"},
+  { label: "About", page: "about"},
   { label: "Skills", page: "skills" },
   { label: "Contact", page: "contact" },
   
