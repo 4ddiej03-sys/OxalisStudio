@@ -1,4 +1,4 @@
-// src/pages/PortfolioPage.jsx
+// src/pages/APPPage.jsx
 export function APPPage({ navigate }) {
   const serif = "'Cormorant Garamond', Georgia, serif";
   const sans  = "'DM Sans', system-ui, sans-serif";
