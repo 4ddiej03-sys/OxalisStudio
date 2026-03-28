@@ -2,10 +2,11 @@
 import { useState, useEffect } from "react";
 
 const LINKS = [
-  { label: "Work", page: "portfolio" },
+  { label: "App", page: "app" },
   { label: "Publication", page: "publication"},
   { label: "SJAC", page: "sjac"},
   { label: "J'Adore", page: "jadore"},
+  { labe:  "ADDIE+", page: "addie"},
   { label: "About", page: "about" },
   { label: "Skills", page: "skills" },
   { label: "Contact", page: "contact" },
