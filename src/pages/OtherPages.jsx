@@ -151,7 +151,7 @@ export function PublicationPage({ navigate }) {
             <div style={{ aspectRatio: "3/4", overflow: "hidden", marginBottom: 32 }}>
               <img
                 src={publicationPhoto}
-                alt="Publication profile"
+                alt="publication-profile.jpg"
                 style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
               />
             </div>
@@ -276,7 +276,7 @@ export function SJACPage({ navigate }) {
             <div style={{ aspectRatio: "3/4", overflow: "hidden", marginBottom: 32 }}>
               <img
                 src={sjacPhoto}
-                alt="SJAC Newsletter February 2024"
+                alt="sjac-profile.jpg"
                 style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
               />
             </div>
@@ -408,7 +408,7 @@ export function AddiePage({ navigate }) {
             <div style={{ aspectRatio: "3/4", overflow: "hidden", marginBottom: 32 }}>
               <img
                 src={addiePhoto}
-                alt="addie+ Collection"
+                alt="addie-profile.jpg"
                 style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
               />
             </div>
@@ -578,7 +578,7 @@ export function JadorePage({ navigate }) {
             <div style={{ aspectRatio: "3/4", overflow: "hidden", marginBottom: 32 }}>
               <img
                 src={jadorePhoto}
-                alt="J'Adore Collection"
+                alt="jadore-profile.jpg"
                 style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
               />
             </div>
