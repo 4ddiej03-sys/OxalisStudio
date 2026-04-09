@@ -48,16 +48,16 @@ const FEATURED = [
 
 // All gallery images from public/ — add your real filenames here
 const GALLERY_IMAGES = [
-  { src: "/sjac-1.jpg",         label: "SJAC" },
-  { src: "/jadore-1.jpg",       label: "J'Adore" },
-  { src: "/addie-1.jpg",        label: "addie+" },
-  { src: "/publication-1.jpg",  label: "Publication" },
-  { src: "/sjac-2.jpg",         label: "SJAC" },
-  { src: "/jadore-2.jpg",       label: "J'Adore" },
-  { src: "/addie-2.jpg",        label: "addie+" },
-  { src: "/publication-2.jpg",  label: "Publication" },
-  { src: "/sjac-3.jpg",         label: "SJAC" },
-  { src: "/jadore-3.jpg",       label: "J'Adore" },
+  { src: "/sjac-1.jpg",        label: "SJAC",        page: "sjac" },
+  { src: "/jadore-1.jpg",      label: "J'Adore",     page: "jadore" },
+  { src: "/addie-1.jpg",       label: "addie+",      page: "addie" },
+  { src: "/publication-1.jpg", label: "Publication",  page: "publication" },
+  { src: "/sjac-2.jpg",        label: "SJAC",        page: "sjac" },
+  { src: "/jadore-2.jpg",      label: "J'Adore",     page: "jadore" },
+  { src: "/addie-2.jpg",       label: "addie+",      page: "addie" },
+  { src: "/publication-2.jpg", label: "Publication",  page: "publication" },
+  { src: "/sjac-3.jpg",        label: "SJAC",        page: "sjac" },
+  { src: "/jadore-3.jpg",      label: "J'Adore",     page: "jadore" },
 ];
 
 function GlidingGallery({ navigate }) {
@@ -113,6 +113,7 @@ function GlidingGallery({ navigate }) {
           {doubled.map((img, i) => (
             <div
               key={i}
+              onClick={() => navigate(img.page)}   // ← ADD THIS
               style={{ position: "relative", flexShrink: 0, width: 280, height: 360, overflow: "hidden", borderRadius: 2 }}
             >
               <img
