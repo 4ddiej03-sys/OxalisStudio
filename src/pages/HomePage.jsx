@@ -1,81 +1,147 @@
 // src/pages/HomePage.jsx
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const FEATURED = [
   {
-    id: 1,
-    title: "Che AF",
-    subtitle: "AI Recipe App",
+    id: 1, title: "Che AF", subtitle: "AI Recipe App",
     tags: ["App Development", "UI/UX Design", "Branding"],
     desc: "AI-powered recipe generation from fridge ingredients. Built with accessibility at its core — a world-first voice navigation system for blind users.",
-    url: "https://che-af.vercel.app",
-    color: "#c4622d",
-    bg: "#fdf5f0",
-    emoji: "🍳",
-    year: "2026",
+    url: "https://che-af.vercel.app", page: null,
+    color: "#c4622d", bg: "#fdf5f0", emoji: "🍳", year: "2026",
   },
   {
-    id: 2,
-    title: "Mix-R",
-    subtitle: "AI Cocktail App",
+    id: 2, title: "Mix-R", subtitle: "AI Cocktail App",
     tags: ["App Development", "UI/UX Design", "Branding"],
     desc: "Global drinks discovery app covering 50+ cultures worldwide. Scan your bar shelf and AI generates cocktails, mocktails and traditional drinks instantly.",
-    url: "https://mix-r.vercel.app",
-    color: "#2563eb",
-    bg: "#f0f4ff",
-    emoji: "🍹",
-    year: "2026",
-  },
-    {
-    id: 3,
-    title: "Shohei Juku Aikido Canada",
-    subtitle: "Brand Identity",
-    tags: ["Branding", "Creative Direction", "Layout Design", "Photography", "Advertising"],
-    desc: "Elevating the visual voice of Shohei Juku Aikido Canada by harmonising tradition with modern engagement. Oxalis blends digital creativity and graphic discipline to oversee an ongoing narrative from signature newsletter layouts to dynamic event photography that captures the fluid energy, power, and grace of the dojo.",
-    url: "#sjac",
-    color: "#729be5",
-    bg: "#d4dff4",
-    emoji: "📰",
-    year: "2014",
+    url: "https://mix-r.vercel.app", page: null,
+    color: "#2563eb", bg: "#f0f4ff", emoji: "🍹", year: "2026",
   },
   {
-    id: 4,
-    title: "Publication",
-    subtitle: "Magazine Design. Layout Design",
-    tags: ["Editorial", "Creative Direction", "Layout Design", "Editorial Photography"],
+    id: 3, title: "Shohei Juku Aikido Canada", subtitle: "Brand Identity",
+    tags: ["Branding", "Creative Direction", "Layout Design", "Photography"],
+    desc: "Elevating the visual voice of Shohei Juku Aikido Canada — from signature newsletter layouts to dynamic event photography that captures the fluid energy of the dojo.",
+    url: null, page: "sjac",
+    color: "#729be5", bg: "#d4dff4", emoji: "📰", year: "2014",
+  },
+  {
+    id: 4, title: "Publication", subtitle: "Magazine & Layout Design",
+    tags: ["Editorial", "Creative Direction", "Layout Design"],
     desc: "Digital creativity meets graphic discipline. Crafting a collection of enduring, transcendent narratives through signature layout and design.",
-    url: "#publication",
-    color: "#2d6a4f",
-    bg: "#f0f8f4",
-    emoji: "📚",
-    year: "2009",
-  },
-    {
-    id: 5,
-    title: "J'Adore by Joe",
-    subtitle: "Photography",
-    tags: ["Portrait", "Events", "Product", "Commercials"],
-    desc: "Bridging the natural world with digital creativity. J'Adore by joe captures the quintessential essence of every subject through a unique lens. Clean, minimal, and timeless—searching for the precise angles that unveil the finest details.",
-    url: "#jadore",
-    color: "#592d6a",
-    bg: "#edd9f5",
-    emoji: "📸",
-    year: "2009",
+    url: null, page: "publication",
+    color: "#2d6a4f", bg: "#f0f8f4", emoji: "📚", year: "2009",
   },
   {
-    id: 6,
-    title: "addie+",
-    subtitle: "Brand Identity",
+    id: 5, title: "J'Adore by Joe", subtitle: "Photography",
+    tags: ["Portrait", "Events", "Product", "Commercials"],
+    desc: "Bridging the natural world with digital creativity. Clean, minimal, and timeless — searching for the precise angles that unveil the finest details.",
+    url: null, page: "jadore",
+    color: "#592d6a", bg: "#edd9f5", emoji: "📸", year: "2009",
+  },
+  {
+    id: 6, title: "addie+", subtitle: "Brand Identity",
     tags: ["Branding", "Creative Direction", "Web Design"],
-    desc: "A restaurant visit diary. Digital discipline meets culinary artistry. Addie explores the synergy between presentation, service, and taste—capturing a singular perspective on the dining experience through refined narrative and visual storytelling.",
-    url: "#addie",
-    color: "#a69f3f",
-    bg: "#ede359",
-    emoji: "🍽",
-    year: "2009",
+    desc: "A restaurant visit diary. Digital discipline meets culinary artistry — capturing a singular perspective on the dining experience through refined narrative and visual storytelling.",
+    url: null, page: "addie",
+    color: "#a69f3f", bg: "#fdfde8", emoji: "🍽", year: "2009",
   },
 ];
 
+// All gallery images from public/ — add your real filenames here
+const GALLERY_IMAGES = [
+  { src: "/sjac-1.jpg",         label: "SJAC" },
+  { src: "/jadore-1.jpg",       label: "J'Adore" },
+  { src: "/addie-1.jpg",        label: "addie+" },
+  { src: "/publication-1.jpg",  label: "Publication" },
+  { src: "/sjac-2.jpg",         label: "SJAC" },
+  { src: "/jadore-2.jpg",       label: "J'Adore" },
+  { src: "/addie-2.jpg",        label: "addie+" },
+  { src: "/publication-2.jpg",  label: "Publication" },
+  { src: "/sjac-3.jpg",         label: "SJAC" },
+  { src: "/jadore-3.jpg",       label: "J'Adore" },
+];
+
+function GlidingGallery({ navigate }) {
+  const serif = "'Cormorant Garamond', Georgia, serif";
+  const sans  = "'DM Sans', system-ui, sans-serif";
+  const trackRef = useRef(null);
+  const [offset, setOffset] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const speed = 0.5; // px per frame — lower = slower
+
+  useEffect(() => {
+    let animId;
+    const step = () => {
+      if (!paused && trackRef.current) {
+        setOffset(prev => {
+          const totalWidth = trackRef.current.scrollWidth / 2;
+          return prev >= totalWidth ? 0 : prev + speed;
+        });
+      }
+      animId = requestAnimationFrame(step);
+    };
+    animId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(animId);
+  }, [paused]);
+
+  // Duplicate images so it loops seamlessly
+  const doubled = [...GALLERY_IMAGES, ...GALLERY_IMAGES];
+
+  return (
+    <section style={{ padding: "100px 0", background: "#f5f0e8", overflow: "hidden" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 40px", marginBottom: 48 }}>
+        <p style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 4, textTransform: "uppercase", color: "#888", marginBottom: 12 }}>A Glimpse</p>
+        <h2 style={{ fontFamily: serif, fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 300, color: "#1a1a1a", lineHeight: 1 }}>
+          Inside the<br /><em style={{ fontStyle: "italic", fontWeight: 700 }}>Studio</em>
+        </h2>
+      </div>
+
+      {/* Sliding strip */}
+      <div
+        style={{ overflow: "hidden", cursor: "grab" }}
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
+        <div
+          ref={trackRef}
+          style={{
+            display: "flex",
+            gap: 12,
+            transform: `translateX(-${offset}px)`,
+            willChange: "transform",
+          }}
+        >
+          {doubled.map((img, i) => (
+            <div
+              key={i}
+              style={{ position: "relative", flexShrink: 0, width: 280, height: 360, overflow: "hidden", borderRadius: 2 }}
+            >
+              <img
+                src={img.src}
+                alt={img.label}
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", transition: "transform 0.6s ease" }}
+                onMouseEnter={e => e.currentTarget.style.transform = "scale(1.04)"}
+                onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
+              />
+              {/* Label overlay */}
+              <div style={{
+                position: "absolute", bottom: 0, left: 0, right: 0,
+                background: "linear-gradient(transparent, rgba(0,0,0,0.5))",
+                padding: "32px 20px 16px",
+              }}>
+                <p style={{ fontFamily: sans, fontSize: 11, letterSpacing: 3, textTransform: "uppercase", color: "rgba(255,255,255,0.8)", margin: 0 }}>{img.label}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Pause hint */}
+      <div style={{ maxWidth: 1200, margin: "24px auto 0", padding: "0 40px" }}>
+        <p style={{ fontFamily: sans, fontSize: 11, color: "#bbb", letterSpacing: 2 }}>Hover to pause · Click a project above to explore</p>
+      </div>
+    </section>
+  );
+}
 
 export default function HomePage({ navigate }) {
   const [visible, setVisible] = useState(false);
@@ -84,53 +150,35 @@ export default function HomePage({ navigate }) {
 
   useEffect(() => { setTimeout(() => setVisible(true), 100); }, []);
 
+  function handleProjectClick(p) {
+    if (p.url) {
+      window.open(p.url, "_blank");
+    } else if (p.page) {
+      navigate(p.page);
+    }
+  }
+
   return (
     <div style={{ paddingTop: 72 }}>
 
       {/* Hero */}
       <section style={{ minHeight: "92vh", display: "flex", alignItems: "center", padding: "80px 40px", position: "relative", overflow: "hidden" }}>
-        {/* Subtle background */}
         <div style={{ position: "absolute", top: "10%", right: "-5%", width: 600, height: 600, borderRadius: "50%", background: "rgba(45,106,79,0.04)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", bottom: "5%", left: "-5%", width: 400, height: 400, borderRadius: "50%", background: "rgba(196,98,45,0.03)", pointerEvents: "none" }} />
-
         <div style={{ maxWidth: 1200, margin: "0 auto", width: "100%" }}>
           <div style={{ maxWidth: 900 }}>
-            <p style={{
-              fontFamily: sans, fontSize: 12, fontWeight: 500, letterSpacing: 4,
-              textTransform: "uppercase", color: "#2d6a4f", marginBottom: 32,
-              opacity: visible ? 1 : 0, transition: "all 0.8s",
-            }}>
+            <p style={{ fontFamily: sans, fontSize: 12, fontWeight: 500, letterSpacing: 4, textTransform: "uppercase", color: "#2d6a4f", marginBottom: 32, opacity: visible ? 1 : 0, transition: "all 0.8s" }}>
               🌿 Creative Studio
             </p>
-
-            <h1 style={{
-              fontFamily: serif, fontSize: "clamp(52px, 8vw, 110px)",
-              fontWeight: 300, lineHeight: 0.95, color: "#1a1a1a",
-              letterSpacing: -2, marginBottom: 40,
-              opacity: visible ? 1 : 0,
-              transform: visible ? "translateY(0)" : "translateY(40px)",
-              transition: "all 1s cubic-bezier(0.16,1,0.3,1) 0.1s",
-            }}>
+            <h1 style={{ fontFamily: serif, fontSize: "clamp(52px, 8vw, 110px)", fontWeight: 300, lineHeight: 0.95, color: "#1a1a1a", letterSpacing: -2, marginBottom: 40, opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(40px)", transition: "all 1s cubic-bezier(0.16,1,0.3,1) 0.1s" }}>
               We design<br />
               <em style={{ fontStyle: "italic", fontWeight: 700 }}>experiences</em><br />
               that matter.
             </h1>
-
-            <p style={{
-              fontFamily: sans, fontSize: 18, fontWeight: 300, color: "#666",
-              lineHeight: 1.8, maxWidth: 560, marginBottom: 56,
-              opacity: visible ? 1 : 0,
-              transition: "all 0.8s 0.3s",
-            }}>
-              OXALIS Studio is a creative studio specialising in
-              app development, brand identity, advertising, UI/UX design and creative direction.
-            
+            <p style={{ fontFamily: sans, fontSize: 18, fontWeight: 300, color: "#666", lineHeight: 1.8, maxWidth: 560, marginBottom: 56, opacity: visible ? 1 : 0, transition: "all 0.8s 0.3s" }}>
+              OXALIS Studio is a creative studio specialising in app development, brand identity, advertising, UI/UX design and creative direction.
             </p>
-
-            <div style={{
-              display: "flex", gap: 16, flexWrap: "wrap",
-              opacity: visible ? 1 : 0, transition: "all 0.8s 0.5s",
-            }}>
+            <div style={{ display: "flex", gap: 16, flexWrap: "wrap", opacity: visible ? 1 : 0, transition: "all 0.8s 0.5s" }}>
               <button onClick={() => navigate("portfolio")}
                 style={{ fontFamily: sans, fontSize: 13, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", background: "#1a1a1a", color: "#fff", border: "none", padding: "16px 36px", cursor: "pointer" }}>
                 View Our Work
@@ -142,8 +190,6 @@ export default function HomePage({ navigate }) {
             </div>
           </div>
         </div>
-
-        {/* Scroll indicator */}
         <div style={{ position: "absolute", bottom: 40, left: "50%", transform: "translateX(-50%)", textAlign: "center", opacity: visible ? 0.4 : 0, transition: "all 0.8s 1s" }}>
           <div style={{ fontFamily: sans, fontSize: 10, letterSpacing: 3, textTransform: "uppercase", color: "#888", marginBottom: 8 }}>Scroll</div>
           <div style={{ width: 1, height: 40, background: "#888", margin: "0 auto" }} />
@@ -155,7 +201,7 @@ export default function HomePage({ navigate }) {
         <div style={{ display: "flex", gap: 60, whiteSpace: "nowrap", animation: "marquee 20s linear infinite" }}>
           {[...Array(3)].map((_, i) => (
             <span key={i} style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, fontWeight: 300, color: "rgba(255,255,255,0.7)", letterSpacing: 3, flexShrink: 0 }}>
-              App Development &nbsp;·&nbsp; Brand Identity &nbsp;·&nbsp; Creative Direction &nbsp;·&nbsp; Advertising &nbsp;·&nbsp;UI/UX Design &nbsp;·&nbsp; Photography &nbsp;·&nbsp; Food & Drink Content &nbsp;·&nbsp;
+              App Development &nbsp;·&nbsp; Brand Identity &nbsp;·&nbsp; Creative Direction &nbsp;·&nbsp; Advertising &nbsp;·&nbsp; UI/UX Design &nbsp;·&nbsp; Photography &nbsp;·&nbsp; Food & Drink Content &nbsp;·&nbsp;
             </span>
           ))}
         </div>
@@ -181,7 +227,7 @@ export default function HomePage({ navigate }) {
           <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
             {FEATURED.map((p, i) => (
               <div key={p.id}
-                onClick={() => p.url.startsWith("http") ? window.open(p.url, "_blank") : navigate("portfolio")}
+                onClick={() => handleProjectClick(p)}
                 style={{ display: "flex", alignItems: "center", gap: 40, padding: "40px 0", borderTop: "1px solid rgba(0,0,0,0.06)", cursor: "pointer", transition: "all 0.3s" }}
                 onMouseEnter={e => { e.currentTarget.style.paddingLeft = "24px"; }}
                 onMouseLeave={e => { e.currentTarget.style.paddingLeft = "0px"; }}>
@@ -209,6 +255,9 @@ export default function HomePage({ navigate }) {
         </div>
       </section>
 
+      {/* ↓ GLIDING GALLERY — sits right under Featured Work */}
+      <GlidingGallery navigate={navigate} />
+
       {/* Studio intro */}
       <section style={{ padding: "120px 40px", background: "#1a1a1a" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }}>
@@ -227,10 +276,10 @@ export default function HomePage({ navigate }) {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
             {[
-              { num: "2", label: "Apps Launched", sub: "Che AF & Mix-R" },
-              { num: "13", label: "Languages", sub: "Global accessibility" },
-              { num: "200", label: "Pioneer Users", sub: "First wave" },
-              { num: "50+", label: "Cultures", sub: "Mix-R coverage" },
+              { num: "2",    label: "Apps Launched",  sub: "Che AF & Mix-R" },
+              { num: "13",   label: "Languages",       sub: "Global accessibility" },
+              { num: "200",  label: "Pioneer Users",   sub: "First wave" },
+              { num: "50+",  label: "Cultures",        sub: "Mix-R coverage" },
             ].map((s, i) => (
               <div key={i} style={{ padding: 28, border: "1px solid rgba(245,240,232,0.08)" }}>
                 <div style={{ fontFamily: serif, fontSize: 48, fontWeight: 700, color: "#f5f0e8", lineHeight: 1, marginBottom: 8 }}>{s.num}</div>
@@ -258,6 +307,7 @@ export default function HomePage({ navigate }) {
           </button>
         </div>
       </section>
+
     </div>
   );
 }
