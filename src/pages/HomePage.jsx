@@ -33,8 +33,8 @@ const FEATURED = [
     tags: ["Branding", "Creative Direction", "Layout Design", "Photography", "Advertising"],
     desc: "Elevating the visual voice of Shohei Juku Aikido Canada by harmonising tradition with modern engagement. Oxalis blends digital creativity and graphic discipline to oversee an ongoing narrative from signature newsletter layouts to dynamic event photography that captures the fluid energy, power, and grace of the dojo.",
     url: "#sjac",
-    color: "#2d6a4f",
-    bg: "#f0f8f4",
+    color: "#729be5",
+    bg: "#d4dff4",
     emoji: "📰",
     year: "2014",
   },
@@ -57,8 +57,8 @@ const FEATURED = [
     tags: ["Portrait", "Events", "Product", "Commercials"],
     desc: "Bridging the natural world with digital creativity. J'Adore by joe captures the quintessential essence of every subject through a unique lens. Clean, minimal, and timeless—searching for the precise angles that unveil the finest details.",
     url: "#jadore",
-    color: "#2d6a4f",
-    bg: "#f0f8f4",
+    color: "#592d6a",
+    bg: "#edd9f5",
     emoji: "📸",
     year: "2009",
   },
@@ -69,12 +69,13 @@ const FEATURED = [
     tags: ["Branding", "Creative Direction", "Web Design"],
     desc: "A restaurant visit diary. Digital discipline meets culinary artistry. Addie explores the synergy between presentation, service, and taste—capturing a singular perspective on the dining experience through refined narrative and visual storytelling.",
     url: "#addie",
-    color: "#2d6a4f",
-    bg: "#f0f8f4",
+    color: "#a69f3f",
+    bg: "#ede359",
     emoji: "🍽",
     year: "2009",
   },
 ];
+
 
 export default function HomePage({ navigate }) {
   const [visible, setVisible] = useState(false);

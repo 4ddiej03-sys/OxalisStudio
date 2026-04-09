@@ -1,7 +1,7 @@
 // src/components/Nav.jsx
 import { useState, useEffect } from "react";
 
-const LINKS = [
+const LINKS = [ 
   { label: "App", page: "app" },
   { label: "Publication", page: "publication"},
   { label: "SJAC", page: "sjac"},

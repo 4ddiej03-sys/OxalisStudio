@@ -1,8 +1,23 @@
+import { useState, useRef } from 'react'
+
+//import appPhoto from from '../assets/app-profile.jpg' <- when the photo box is ready, delete this line!
+import publicationPhoto from '../assets/publication-profile.jpg'
+import sjacPhoto from '../assets/sjac-profile.jpg'
+import addiePhoto from '../assets/addie-profile.jpg'
+import jadorePhoto from '../assets/jadore-profile.jpg'
+
+
+
+// ─── APPPage ─────────────────────────────────────────────────────────────────
+
+
 // src/pages/APPPage.jsx
+
 export function APPPage({ navigate }) {
   const serif = "'Cormorant Garamond', Georgia, serif";
   const sans  = "'DM Sans', system-ui, sans-serif";
 
+  {/* ↓ THIS IS THE PORTFOLIO SECTION */}
   const PROJECTS = [
     {
       title: "Che AF", subtitle: "AI Recipe App · 2026",
@@ -52,12 +67,17 @@ export function APPPage({ navigate }) {
                       <span key={j} style={{ fontFamily: sans, fontSize: 11, color: p.color, border: `1px solid ${p.color}`, padding: "4px 10px", opacity: 0.8 }}>{tag}</span>
                     ))}
                   </div>
-                  {p.url !== "#" && (
+                  {p.url.startsWith('http') ? (
                     <a href={p.url} target="_blank" rel="noopener noreferrer"
-                      style={{ fontFamily: sans, fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: p.color, textDecoration: "none", display: "flex", alignItems: "center", gap: 6 }}>
+                      style={{ fontFamily: sans, fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: p.color, textDecoration: "none" }}>
                       View Live ↗
                     </a>
-                  )}
+                    ) : p.url !== "#" ? (
+                    <button onClick={() => navigate(p.url)}
+                      style={{ fontFamily: sans, fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: p.color, background: "none", border: "none", cursor: "pointer", padding: 0 }}>
+                      View Project ↗
+                    </button>
+                  ) : null}
                 </div>
                 <div>
                   <p style={{ fontFamily: sans, fontSize: 15, color: "#666", lineHeight: 1.9, marginBottom: 32 }}>{p.desc}</p>
@@ -83,9 +103,23 @@ export function APPPage({ navigate }) {
 }
 
 // src/pages/PublicationPage.jsx
+
 export function PublicationPage({ navigate }) {
   const serif = "'Cormorant Garamond', Georgia, serif";
   const sans  = "'DM Sans', system-ui, sans-serif";
+
+    const GALLERY = [
+    'publication-1.jpg',
+    'publication-2.jpg',
+    'publication-3.jpg',
+    'publication-4.jpg',
+    'publication-5.jpg',
+    'publication-6.jpg',
+    'publication-7.jpg',
+    'publication-8.jpg',
+    'publication-9.jpg',
+  ];
+
 
   return (
     <div style={{ paddingTop: 72 }}>
@@ -113,22 +147,22 @@ export function PublicationPage({ navigate }) {
           </div>
 
           <div>
-            {/* Profile placeholder */}
-            <div style={{ background: "#f0f0ee", aspectRatio: "3/4", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 32, position: "relative", overflow: "hidden" }}>
-              <div style={{ textAlign: "center" }}>
-                <div style={{ fontSize: 80, marginBottom: 16 }}>🌿</div>
-                <p style={{ fontFamily: serif, fontSize: 18, color: "#aaa", fontStyle: "italic" }}>Agatha Joe</p>
-                <p style={{ fontFamily: sans, fontSize: 12, color: "#bbb", letterSpacing: 2, textTransform: "uppercase", marginTop: 4 }}>Creative Director</p>
-              </div>
-              <div style={{ position: "absolute", bottom: 20, right: 20, fontFamily: sans, fontSize: 11, color: "#bbb", letterSpacing: 1 }}>Photo coming soon</div>
+            {/* ↓ THIS IS WHERE THE PHOTO GOES — replaces the 🌿 placeholder */}
+            <div style={{ aspectRatio: "3/4", overflow: "hidden", marginBottom: 32 }}>
+              <img
+                src={publicationPhoto}
+                alt="Publication profile"
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              />
             </div>
+            {/* ↑ END OF PHOTO REPLACEMENT */}
 
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1, background: "rgba(0,0,0,0.04)" }}>
               {[
                 { label: "Based", value: "New Zealand" },
                 { label: "Founded", value: "2009" },
-                { label: "Speciality", value: "AI Apps, Branding, Photography" },
-                { label: "Instagram", value: "@cheaf_cooklikeyouknow @mixr_shakewhatyouvegot" },
+                { label: "Projects", value: "the LOFT, OLYMPIA, Graphic Design, Photography" },
+                { label: "Catagory", value: "Layout & Graphic Design" },
               ].map((item, i) => (
                 <div key={i} style={{ background: "#fafaf8", padding: "20px 24px" }}>
                   <p style={{ fontFamily: sans, fontSize: 10, fontWeight: 500, letterSpacing: 3, textTransform: "uppercase", color: "#aaa", marginBottom: 6 }}>{item.label}</p>
@@ -143,9 +177,9 @@ export function PublicationPage({ navigate }) {
       {/* Values */}
       <section style={{ padding: "100px 40px", background: "#1a1a1a" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <p style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 4, textTransform: "uppercase", color: "#2d6a4f", marginBottom: 16 }}>Our on-going and previous</p>
+          <p style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 4, textTransform: "uppercase", color: "#2d6a4f", marginBottom: 16 }}>On-going and previous</p>
           <h2 style={{ fontFamily: serif, fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 300, color: "#f5f0e8", lineHeight: 1, marginBottom: 72 }}>
-            Projects<br /><em style={{ fontStyle: "italic", fontWeight: 700 }}>believe in</em>
+            Projects<br /><em style={{ fontStyle: "italic", fontWeight: 700 }}>we love</em>
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 2, background: "rgba(255,255,255,0.04)" }}>
             {[
@@ -166,23 +200,59 @@ export function PublicationPage({ navigate }) {
           </div>
         </div>
       </section>
+
+      {/* ↓ THIS IS THE NEW 3×3 PHOTO GRID SECTION */}
+      <section style={{ padding: "100px 40px", background: "#fafaf8" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <p style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 4, textTransform: "uppercase", color: "#888", marginBottom: 16 }}>Creative Direction</p>
+          <h2 style={{ fontFamily: serif, fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 300, color: "#1a1a1a", lineHeight: 1, marginBottom: 60 }}>
+            Behind the<br /><em style={{ fontStyle: "italic", fontWeight: 700 }}>Projects</em>
+          </h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 4 }}>
+            {GALLERY.map((src, i) => (
+              <div key={i} style={{ aspectRatio: "1/1", overflow: "hidden" }}>
+                <img
+                  src={src}
+                  alt={`Publication photo ${i + 1}`}
+                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* ↑ END OF GRID SECTION */}
+
     </div>
   );
 }
 
 // src/pages/SJACPage.jsx
+
 export function SJACPage({ navigate }) {
   const serif = "'Cormorant Garamond', Georgia, serif";
   const sans  = "'DM Sans', system-ui, sans-serif";
+
+  const GALLERY = [
+  '/sjac-1.jpg',
+  '/sjac-2.jpg',
+  '/sjac-3.jpg',
+  '/sjac-4.jpg',
+  '/sjac-5.jpg',
+  '/sjac-6.jpg',
+  '/sjac-7.jpg',
+  '/sjac-8.jpg',
+  '/sjac-9.jpg',
+];
 
   return (
     <div style={{ paddingTop: 72 }}>
       <section style={{ padding: "100px 40px", background: "#fafaf8" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 100, alignItems: "start" }}>
           <div>
-            <p style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 4, textTransform: "uppercase", color: "#888", marginBottom: 16 }}>Layout Design & Event Photography</p>
+            <p style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 4, textTransform: "uppercase", color: "#888", marginBottom: 16 }}>Layout Design & Creative Photography</p>
             <h1 style={{ fontFamily: serif, fontSize: "clamp(40px, 5vw, 72px)", fontWeight: 300, color: "#1a1a1a", lineHeight: 0.95, marginBottom: 40 }}>
-              Publication &<br /><em style={{ fontStyle: "italic", fontWeight: 700 }}>Creative Photography</em>
+              Shohei Juku<br /><em style={{ fontStyle: "italic", fontWeight: 700 }}>Aikido Canada</em>
             </h1>
             <div style={{ width: 60, height: 1, background: "#1a1a1a", marginBottom: 40 }} />
             <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 24 }}>
@@ -195,22 +265,22 @@ export function SJACPage({ navigate }) {
             <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 48 }}>
               Creating shorts videos during pandemic promo to bring harmony of practice of non-contact basic principle.
             </p>
-            <a href="mailto:support@che-af.vercel.app"
+            <a href="mailto:support@oxalis-studio.vercel.app"
               style={{ fontFamily: sans, fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: "#1a1a1a", textDecoration: "none", borderBottom: "1px solid #1a1a1a", paddingBottom: 4 }}>
               Get in Touch →
             </a>
           </div>
 
           <div>
-            {/* Profile placeholder */}
-            <div style={{ background: "#f0f0ee", aspectRatio: "3/4", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 32, position: "relative", overflow: "hidden" }}>
-              <div style={{ textAlign: "center" }}>
-                <div style={{ fontSize: 80, marginBottom: 16 }}>🌿</div>
-                <p style={{ fontFamily: serif, fontSize: 18, color: "#aaa", fontStyle: "italic" }}>Agatha Joe</p>
-                <p style={{ fontFamily: sans, fontSize: 12, color: "#bbb", letterSpacing: 2, textTransform: "uppercase", marginTop: 4 }}>Creative Director</p>
-              </div>
-              <div style={{ position: "absolute", bottom: 20, right: 20, fontFamily: sans, fontSize: 11, color: "#bbb", letterSpacing: 1 }}>Photo coming soon</div>
+            {/* ↓ THIS IS WHERE THE PHOTO GOES — replaces the 🌿 placeholder */}
+            <div style={{ aspectRatio: "3/4", overflow: "hidden", marginBottom: 32 }}>
+              <img
+                src={sjacPhoto}
+                alt="SJAC Newsletter February 2024"
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              />
             </div>
+            {/* ↑ END OF PHOTO REPLACEMENT */}
 
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1, background: "rgba(0,0,0,0.04)" }}>
               {[
@@ -238,13 +308,13 @@ export function SJACPage({ navigate }) {
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 2, background: "rgba(255,255,255,0.04)" }}>
             {[
-              { title: "Newsletter", desc: "Newsletter Design produced monthly. Special event photogragrphy", icon: "🥋" },
+              { title: "Newsletter", desc: "Newsletter Design produced monthly. Special event photography", icon: "🥋" },
               { title: "Photography", desc: "A branding project for burger joint in Hasting Sunrise, Vancouver.", icon: "🍔" },
               { title: "Poster", desc: "A magazine for Women to empowered Women.", icon: "📚" },
               { title: "Promo", desc: "A collection of stories from musicians to inspire other musicians.", icon: "🎷" },
               { title: "Cover Design", desc: "Book cover redesign for The Arabian Nights", icon: "🌍" },
               { title: "Aotearoa Tours", desc: "A travel magazine guide of travelling New Zealand.", icon: "🛫" }
-              
+
             ].map((v, i) => (
               <div key={i} style={{ padding: "48px 40px", background: "#1a1a1a" }}>
                 <span style={{ fontSize: 32, display: "block", marginBottom: 24 }}>{v.icon}</span>
@@ -255,14 +325,50 @@ export function SJACPage({ navigate }) {
           </div>
         </div>
       </section>
+
+      {/* ↓ THIS IS THE NEW 3×3 PHOTO GRID SECTION */}
+      <section style={{ padding: "100px 40px", background: "#fafaf8" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <p style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 4, textTransform: "uppercase", color: "#888", marginBottom: 16 }}>Photography</p>
+          <h2 style={{ fontFamily: serif, fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 300, color: "#1a1a1a", lineHeight: 1, marginBottom: 60 }}>
+            Behind the<br /><em style={{ fontStyle: "italic", fontWeight: 700 }}>Practice</em>
+          </h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 4 }}>
+            {GALLERY.map((src, i) => (
+              <div key={i} style={{ aspectRatio: "1/1", overflow: "hidden" }}>
+                <img
+                  src={src}
+                  alt={`SJAC photo ${i + 1}`}
+                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* ↑ END OF GRID SECTION */}
+
     </div>
   );
 }
 
 // src/pages/AddiePage.jsx
+
 export function AddiePage({ navigate }) {
   const serif = "'Cormorant Garamond', Georgia, serif";
   const sans  = "'DM Sans', system-ui, sans-serif";
+
+  const GALLERY = [
+    'addie-1.jpg',
+    'addie-2.jpg',
+    'addie-3.jpg',
+    'addie-4.jpg',
+    'addie-5.jpg',
+    'addie-6.jpg',
+    'addie-7.jpg',
+    'addie-8.jpg',
+    'addie-9.jpg',
+  ];
 
   return (
     <div style={{ paddingTop: 72 }}>
@@ -275,15 +381,22 @@ export function AddiePage({ navigate }) {
             </h1>
             <div style={{ width: 60, height: 1, background: "#1a1a1a", marginBottom: 40 }} />
             <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 24 }}>
+              Welcome to addie+, where we will take you on a journey of colourful, flavourful plates.
+              A journey to a place of flavour wonder that will dance above your tongue and give you an explosion of tastes.
+            </p>
+            <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 24 }}>
               A restaurant visit diary. Digital discipline meets culinary artistry.
               Addie+ explores the synergy between presentation, service, and taste, capturing a singular perspective on the dining experience through refined narrative and visual storytelling.
             </p>
             <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 24 }}>
+              A love of cooking turns into a taste hunter for cultural culinary.
               This is not sponsored by anyone. Merely a love of food cater by our great cooks from around the world. A taste of the world writen beautifuly for your reading pleasure.
             </p>
-            <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 48 }}>
-              A love of cooking turns into a taste hunter for cultural culinary.
+            <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 24 }}>
+              We hope that what we write here will bring you joy in reading and motivate you to get up, rush to these places, and experience the beautifully prepared food at your table.
             </p>
+            <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 24 }}>
+              Happy reading and bon appetite!</p>
             <a href="mailto:s1mply1rr3s1st4bl3@gmail.com"
               style={{ fontFamily: sans, fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: "#1a1a1a", textDecoration: "none", borderBottom: "1px solid #1a1a1a", paddingBottom: 4 }}>
               Get in Touch →
@@ -291,15 +404,15 @@ export function AddiePage({ navigate }) {
           </div>
 
           <div>
-            {/* Profile placeholder */}
-            <div style={{ background: "#f0f0ee", aspectRatio: "3/4", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 32, position: "relative", overflow: "hidden" }}>
-              <div style={{ textAlign: "center" }}>
-                <div style={{ fontSize: 80, marginBottom: 16 }}>🌿</div>
-                <p style={{ fontFamily: serif, fontSize: 18, color: "#aaa", fontStyle: "italic" }}>Agatha Joe</p>
-                <p style={{ fontFamily: sans, fontSize: 12, color: "#bbb", letterSpacing: 2, textTransform: "uppercase", marginTop: 4 }}>Creative Director</p>
-              </div>
-              <div style={{ position: "absolute", bottom: 20, right: 20, fontFamily: sans, fontSize: 11, color: "#bbb", letterSpacing: 1 }}>Photo coming soon</div>
+            {/* ↓ THIS IS WHERE THE PHOTO GOES — replaces the 🌿 placeholder */}
+            <div style={{ aspectRatio: "3/4", overflow: "hidden", marginBottom: 32 }}>
+              <img
+                src={addiePhoto}
+                alt="addie+ Collection"
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              />
             </div>
+            {/* ↑ END OF PHOTO REPLACEMENT */}
 
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1, background: "rgba(0,0,0,0.04)" }}>
               {[
@@ -323,7 +436,7 @@ export function AddiePage({ navigate }) {
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <p style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 4, textTransform: "uppercase", color: "#2d6a4f", marginBottom: 16 }}>Places that</p>
           <h2 style={{ fontFamily: serif, fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 300, color: "#f5f0e8", lineHeight: 1, marginBottom: 72 }}>
-            We visited<br /><em style={{ fontStyle: "italic", fontWeight: 700 }}>so far</em>
+            Places we visited<br /><em style={{ fontStyle: "italic", fontWeight: 700 }}>so far</em>
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 2, background: "rgba(255,255,255,0.04)" }}>
             {[
@@ -344,14 +457,95 @@ export function AddiePage({ navigate }) {
           </div>
         </div>
       </section>
+
+    {/* ↓ THIS IS THE NEW 3×3 PHOTO GRID SECTION */}
+      <section style={{ padding: "100px 40px", background: "#fafaf8" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <p style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 4, textTransform: "uppercase", color: "#888", marginBottom: 16 }}>addie+</p>
+          <h2 style={{ fontFamily: serif, fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 300, color: "#1a1a1a", lineHeight: 1, marginBottom: 60 }}>
+            and the simply irresistible<br /><em style={{ fontStyle: "italic", fontWeight: 700 }}>dining experiences</em>
+          </h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 4 }}>
+            {GALLERY.map((src, i) => (
+              <div key={i} style={{ aspectRatio: "1/1", overflow: "hidden" }}>
+                <img
+                  src={src}
+                  alt={`Addie photo ${i + 1}`}
+                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* ↑ END OF GRID SECTION */}
+
     </div>
   );
 }
+
+// ─── GridItem (for JadorePage videos) START ───────────────────────────────────────
+
+function GridItem({ item, index }) {
+  const videoRef = useRef(null);
+  const [playing, setPlaying] = useState(false);
+  const [muted, setMuted] = useState(true);
+
+  const togglePlay = () => {
+    if (playing) { videoRef.current.pause(); }
+    else { videoRef.current.play(); }
+    setPlaying(!playing);
+  };
+
+  const toggleSound = () => {
+    videoRef.current.muted = !muted;
+    setMuted(!muted);
+  };
+
+  if (item.type === 'image') {
+    return (
+      <div style={{ aspectRatio: "1/1", overflow: "hidden" }}>
+        <img src={item.src} alt={`Jadore photo ${index + 1}`}
+          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+      </div>
+    );
+  }
+
+  return (
+    <div style={{ aspectRatio: "1/1", overflow: "hidden", position: "relative" }}>
+      <video ref={videoRef} src={item.src} loop muted playsInline
+        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+      <div style={{ position: "absolute", bottom: 10, left: 10, display: "flex", gap: 6 }}>
+        <button onClick={togglePlay}
+          style={{ background: "rgba(0,0,0,0.5)", border: "none", borderRadius: "50%", width: 36, height: 36, cursor: "pointer", color: "#fff", fontSize: 14, display: "flex", alignItems: "center", justifyContent: "center" }}>
+          {playing ? '⏸' : '▶'}
+        </button>
+        <button onClick={toggleSound}
+          style={{ background: "rgba(0,0,0,0.5)", border: "none", borderRadius: "50%", width: 36, height: 36, cursor: "pointer", color: "#fff", fontSize: 14, display: "flex", alignItems: "center", justifyContent: "center" }}>
+          {muted ? '🔇' : '🔊'}
+        </button>
+      </div>
+    </div>
+  );
+}
+// ─── GridItem (for JadorePage videos) END ───────────────────────────────────────
 
 // src/pages/JadorePage.jsx
 export function JadorePage({ navigate }) {
   const serif = "'Cormorant Garamond', Georgia, serif";
   const sans  = "'DM Sans', system-ui, sans-serif";
+
+  const GALLERY = [
+    { src: '/jadore-1.jpg', type: 'image' },
+    { src: '/jadore-2.jpg', type: 'image' },
+    { src: '/jadore-3.jpg', type: 'image' },
+    { src: '/jadore-4.jpg', type: 'image' },
+    { src: '/jadore-5.mp4', type: 'video' },
+    { src: '/jadore-6.jpg', type: 'image' },
+    { src: '/jadore-7.jpg', type: 'image' },
+    { src: '/jadore-8.jpg', type: 'image' },
+    { src: '/jadore-9.jpg', type: 'image' },
+  ];
 
   return (
     <div style={{ paddingTop: 72 }}>
@@ -372,31 +566,29 @@ export function JadorePage({ navigate }) {
               We let the nature provide as our studio and the beautiful weather as our lighting.
             </p>
             <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 48 }}>
-              We let the nature provide as our studio and the beautiful weather as our lighting. 
-            </p>  
-            <a href="mailto:$ddiej03@gmail.com"
+              We let the nature provide as our studio and the beautiful weather as our lighting.
+            </p>
+            <a href="mailto:4ddiej03@gmail.com"
               style={{ fontFamily: sans, fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: "#1a1a1a", textDecoration: "none", borderBottom: "1px solid #1a1a1a", paddingBottom: 4 }}>
               Get in Touch →
             </a>
           </div>
 
           <div>
-            {/* Profile placeholder */}
-            <div style={{ background: "#f0f0ee", aspectRatio: "3/4", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 32, position: "relative", overflow: "hidden" }}>
-              <div style={{ textAlign: "center" }}>
-                <div style={{ fontSize: 80, marginBottom: 16 }}>🌿</div>
-                <p style={{ fontFamily: serif, fontSize: 18, color: "#aaa", fontStyle: "italic" }}>Agatha Joe</p>
-                <p style={{ fontFamily: sans, fontSize: 12, color: "#bbb", letterSpacing: 2, textTransform: "uppercase", marginTop: 4 }}>Creative Director</p>
-              </div>
-              <div style={{ position: "absolute", bottom: 20, right: 20, fontFamily: sans, fontSize: 11, color: "#bbb", letterSpacing: 1 }}>Photo coming soon</div>
+            <div style={{ aspectRatio: "3/4", overflow: "hidden", marginBottom: 32 }}>
+              <img
+                src={jadorePhoto}
+                alt="J'Adore Collection"
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              />
             </div>
 
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1, background: "rgba(0,0,0,0.04)" }}>
               {[
-                { label: "Places", value: "New Zealand, Indonesia, Canada, Japan, France" },
+                { label: "Places", value: "New Zealand, Indonesia, Canada, Japan, France, Tahiti" },
                 { label: "Journey", value: "2009" },
                 { label: "Collection", value: "Event, Portrait, Travel" },
-                { label: "Catagory", value: "Blog" },
+                { label: "Catagory", value: "Creative Photography" },
               ].map((item, i) => (
                 <div key={i} style={{ background: "#fafaf8", padding: "20px 24px" }}>
                   <p style={{ fontFamily: sans, fontSize: 10, fontWeight: 500, letterSpacing: 3, textTransform: "uppercase", color: "#aaa", marginBottom: 6 }}>{item.label}</p>
@@ -411,19 +603,18 @@ export function JadorePage({ navigate }) {
       {/* Values */}
       <section style={{ padding: "100px 40px", background: "#1a1a1a" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <p style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 4, textTransform: "uppercase", color: "#2d6a4f", marginBottom: 16 }}>Our on-going</p>
+          <p style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 4, textTransform: "uppercase", color: "#2d6a4f", marginBottom: 16 }}>Our</p>
           <h2 style={{ fontFamily: serif, fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 300, color: "#f5f0e8", lineHeight: 1, marginBottom: 72 }}>
             Projects<br /><em style={{ fontStyle: "italic", fontWeight: 700 }}>collaborated</em>
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 2, background: "rgba(255,255,255,0.04)" }}>
             {[
-              { title: "Portrait", desc: "Newsletter Design produced monthly. Special event photogragrphy", icon: "🥋" },
-              { title: "Event", desc: "A branding project for burger joint in Hasting Sunrise, Vancouver.", icon: "🍔" },
-              { title: "Travel", desc: "A magazine for Women to empowered Women.", icon: "📚" },
-              { title: "Food", desc: "A collection of stories from musicians to inspire other musicians.", icon: "🎷" },
-              { title: "Street", desc: "Book cover redesign for The Arabian Nights", icon: "🌍" },
-              { title: "Product", desc: "A travel magazine guide of travelling New Zealand.", icon: "🛫" }
-              
+              { title: "Portrait", desc: "Capturing individuals, families and couples in their most natural, beautiful moments.", icon: "📷" },
+              { title: "Event", desc: "Weddings, birthdays and special occasions documented with care and artistry.", icon: "🎉" },
+              { title: "Travel", desc: "Landscapes and cultures from New Zealand, Japan, France, Indonesia and beyond.", icon: "✈️" },
+              { title: "Food", desc: "A collection of culinary moments from restaurants and home kitchens worldwide.", icon: "🍽️" },
+              { title: "Street", desc: "Candid life captured in cities — the poetry of everyday people and places.", icon: "🌆" },
+              { title: "Product", desc: "Clean, editorial product photography for brands and independent makers.", icon: "📦" },
             ].map((v, i) => (
               <div key={i} style={{ padding: "48px 40px", background: "#1a1a1a" }}>
                 <span style={{ fontSize: 32, display: "block", marginBottom: 24 }}>{v.icon}</span>
@@ -434,9 +625,63 @@ export function JadorePage({ navigate }) {
           </div>
         </div>
       </section>
+
+      {/* 3x3 Grid Section */}
+      <section style={{ padding: "100px 40px", background: "#fafaf8" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <p style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 4, textTransform: "uppercase", color: "#888", marginBottom: 16 }}>Photography</p>
+          <h2 style={{ fontFamily: serif, fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 300, color: "#1a1a1a", lineHeight: 1, marginBottom: 60 }}>
+            Behind the<br /><em style={{ fontStyle: "italic", fontWeight: 700 }}>Beautiful People</em>
+          </h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 4 }}>
+            {GALLERY.map((item, i) => (
+              <GridItem key={i} item={item} index={i} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+    {/* ↑ END OF GRID SECTION */}
+ 
+    {/* J'Adore intro */}
+      <section style={{ padding: "120px 40px", background: "#818181" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }}>
+          <div>
+            <p style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 4, textTransform: "uppercase", color: "#f5f0e8", marginBottom: 24 }}>About the Studio</p>
+            <h2 style={{ fontFamily: serif, fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 300, color: "#1a1a1a", lineHeight: 1.1, marginBottom: 32 }}>
+              Where creativity<br />meets <em style={{ fontStyle: "italic", fontWeight: 700 }}>technology.</em>
+            </h2>
+            <p style={{ fontFamily: sans, fontSize: 15, fontWeight: 300, color: "rgba(245,240,232,0.6)", lineHeight: 1.9, marginBottom: 40 }}>
+              OXALIS Studio was founded with a simple belief that beautiful design and powerful technology should be accessible to everyone. From AI-powered apps to brand identities, we create work that is both visually stunning and deeply functional.
+            </p>
+  
+            <button onClick={() => navigate("about")}
+              style={{ fontFamily: sans, fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", background: "transparent", color: "#f5f0e8", border: "1px solid rgba(245,240,232,0.3)", padding: "14px 32px", cursor: "pointer" }}>
+              Our Story →
+            </button>
+          
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+            {[
+              { num: "2", label: "Apps Launched", sub: "Che AF & Mix-R" },
+              { num: "13", label: "Languages", sub: "Global accessibility" },
+              { num: "200", label: "Pioneer Users", sub: "First wave" },
+              { num: "50+", label: "Cultures", sub: "Mix-R coverage" },
+            ].map((s, i) => (
+              <div key={i} style={{ padding: 28, border: "1px solid rgba(245,240,232,0.08)" }}>
+                <div style={{ fontFamily: serif, fontSize: 48, fontWeight: 700, color: "#f5f0e8", lineHeight: 1, marginBottom: 8 }}>{s.num}</div>
+                <div style={{ fontFamily: sans, fontSize: 13, fontWeight: 600, color: "rgba(245,240,232,0.7)", marginBottom: 4 }}>{s.label}</div>
+                <div style={{ fontFamily: sans, fontSize: 11, color: "rgba(245,240,232,0.3)" }}>{s.sub}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }
+
 
 // src/pages/AboutPage.jsx
 export function AboutPage({ navigate }) {
@@ -732,7 +977,7 @@ export function Footer({ navigate }) {
           </div>
         </div>
         <div style={{ borderTop: "1px solid rgba(245,240,232,0.06)", paddingTop: 32, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <p style={{ fontFamily: sans, fontSize: 12, color: "rgba(245,240,232,0.2)" }}>© 2026 OXALIS Studio · New Zealand</p>
+          <p style={{ fontFamily: sans, fontSize: 12, color: "rgba(245,240,232,0.2)" }}>© 2026 OXALIS Studio</p>
           <p style={{ fontFamily: sans, fontSize: 12, color: "rgba(245,240,232,0.2)" }}>oxalis-studio.vercel.app</p>
         </div>
       </div>
