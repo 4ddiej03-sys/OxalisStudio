@@ -397,9 +397,15 @@ export function AddiePage({ navigate }) {
             </p>
             <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 24 }}>
               Happy reading and bon appetite!</p>
+            {/* ✅ CORRECT — button and link are separate, not nested */}
+            <button onClick={() => navigate("addie-blog")}
+              style={{ fontFamily: sans, fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", background: "#1a1a1a", color: "#fff", border: "none", padding: "14px 28px", cursor: "pointer", marginBottom: 24, display: "block" }}>
+                  Read the Blog →
+            </button>
+
             <a href="mailto:s1mply1rr3s1st4bl3@gmail.com"
               style={{ fontFamily: sans, fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: "#1a1a1a", textDecoration: "none", borderBottom: "1px solid #1a1a1a", paddingBottom: 4 }}>
-              Get in Touch →
+                  Get in Touch →
             </a>
           </div>
 
@@ -921,6 +927,199 @@ export function ContactPage({ navigate }) {
                 Send Message →
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+// ─── BLOG DATA — add new posts here ──────────────────────────────────────────
+
+export const BLOG_POSTS = [
+  {
+    id: "kazu-montreal",
+    title: "Kazu, Montreal",
+    subtitle: "A quiet counter, a bowl of ramen, and the best kind of loneliness.",
+    date: "March 2024",
+    cuisine: "Japanese",
+    city: "Montreal",
+    coverImage: "/blog-kazu.jpg",       // ← ADD THIS — put photo in public/
+    coverColor: "#fdf5f0",              // ← kept as fallback if photo missing
+    coverEmoji: "🍣",
+    excerpt: "There is something about eating alone at a counter that strips away all pretence. No conversation to fill the silence, no one to share the dish with — just you, the steam rising from the bowl, and the quiet theatre of a kitchen that knows exactly what it is doing. Kazu on Stanley Street is exactly that kind of place.",
+    body: `The room is small and the wait is long, but neither of these things matter once you are inside. The counter seats maybe a dozen people, and the kitchen is close enough that you can watch every move — the careful ladling of broth, the precise placement of chashu, the final scatter of spring onion that lands like punctuation at the end of a very good sentence.
+
+I ordered the ramen. There was no real decision to make; everyone orders the ramen. The broth arrives cloudy and serious, carrying the weight of hours of work in every sip. The noodles have the right amount of resistance. The egg, halved and placed just so, bleeds a yolk the colour of late afternoon sun.
+
+Kazu does not try to be anything it is not. There is no elaborate décor, no cocktail list, no dessert menu. It is a restaurant that has decided, with complete confidence, that one thing done extraordinarily well is enough. And it is right.
+
+If you are in Montreal and you have not been — go. Arrive early, expect to wait, and do not bring anyone you need to talk to. This is food that deserves your full attention.`,
+  },
+  {
+    id: "banana-leaf-vancouver",
+    title: "Banana Leaf, Vancouver",
+    subtitle: "Malaysian comfort food that tastes like someone's grandmother made it.",
+    date: "January 2024",
+    cuisine: "Malaysian",
+    city: "Vancouver",
+    coverImage: "/blog-banana-leaf.jpg", // ← ADD THIS
+    coverColor: "#f0f8f4",
+    coverEmoji: "🍲",
+    excerpt: "Vancouver has no shortage of good Asian food, but finding Malaysian cuisine that tastes genuinely Malaysian — not watered down, not westernised, not apologetic about its spice — is rarer than it should be. Banana Leaf on Broadway is one of the places that gets it right.",
+    body: `We arrived on a Tuesday evening, which meant we got a table without waiting. The room is warm and unpretentious — wooden furniture, soft lighting, the kind of atmosphere that tells you immediately this is a place about the food, not the experience of being seen eating the food.
+
+The roti canai arrived first, flaky and yielding, with a dhal that had clearly been cooked slowly and with intention. We tore pieces and dragged them through the sauce and said very little to each other, which is always a good sign.
+
+The laksa that followed was the real centrepiece — coconut-rich, lemongrass-bright, with a heat that built gradually rather than announcing itself all at once. The prawns were generous. The noodles were the right texture. The sambal on the side was fiercer than it looked.
+
+What Banana Leaf does well is resist the temptation to explain itself. The menu does not have lengthy descriptions softening the edges of dishes that are supposed to have edges. The food arrives as it should — bold, fragrant, and completely sure of itself.
+
+I will be back before the month is out. I am already thinking about the curry.`,
+  },
+];
+
+// ─── Addie+ BLOG PAGE ────────────────────────────────────────────────────────────
+
+export function AddieBlogPage({ navigate }) {
+  const serif = "'Cormorant Garamond', Georgia, serif";
+  const sans  = "'DM Sans', system-ui, sans-serif";
+
+  return (
+    <div style={{ paddingTop: 72 }}>
+      <section style={{ padding: "100px 40px 60px", background: "#fafaf8" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <button onClick={() => navigate("addie")}
+            style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 3, textTransform: "uppercase", color: "#aaa", background: "none", border: "none", cursor: "pointer", padding: 0, marginBottom: 40, display: "flex", alignItems: "center", gap: 8 }}>
+            ← Back to addie+
+          </button>
+          <p style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 4, textTransform: "uppercase", color: "#888", marginBottom: 16 }}>The Culinary Diary</p>
+          <h1 style={{ fontFamily: serif, fontSize: "clamp(40px, 6vw, 80px)", fontWeight: 300, color: "#1a1a1a", lineHeight: 0.95 }}>
+            addie+<br /><em style={{ fontStyle: "italic", fontWeight: 700 }}>Stories</em>
+          </h1>
+        </div>
+      </section>
+
+      <section style={{ padding: "40px 40px 120px", background: "#fafaf8" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: 32 }}>
+          {BLOG_POSTS.map((post) => (
+            <div key={post.id}
+              onClick={() => navigate(`blog-${post.id}`)}
+              style={{ cursor: "pointer", border: "1px solid rgba(0,0,0,0.06)", background: "#fff", transition: "transform 0.2s, box-shadow 0.2s" }}
+              onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 12px 40px rgba(0,0,0,0.08)"; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}>
+
+              {/* Cover */}
+            <div style={{ height: 220, overflow: "hidden", background: post.coverColor }}>
+                {post.coverImage ? (
+                <img src={post.coverImage} alt={post.title}
+                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                ) : (
+              <div style={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 72 }}>
+                {post.coverEmoji}
+              </div>
+                )}
+            </div>
+
+              {/* Content */}
+              <div style={{ padding: "32px 28px" }}>
+                <div style={{ display: "flex", gap: 12, marginBottom: 20 }}>
+                  <span style={{ fontFamily: sans, fontSize: 10, fontWeight: 500, letterSpacing: 2, textTransform: "uppercase", color: "#888" }}>{post.date}</span>
+                  <span style={{ color: "#ddd" }}>·</span>
+                  <span style={{ fontFamily: sans, fontSize: 10, fontWeight: 500, letterSpacing: 2, textTransform: "uppercase", color: "#888" }}>{post.city}</span>
+                  <span style={{ color: "#ddd" }}>·</span>
+                  <span style={{ fontFamily: sans, fontSize: 10, fontWeight: 500, letterSpacing: 2, textTransform: "uppercase", color: "#888" }}>{post.cuisine}</span>
+                </div>
+                <h2 style={{ fontFamily: serif, fontSize: 28, fontWeight: 600, color: "#1a1a1a", marginBottom: 10, lineHeight: 1.1 }}>{post.title}</h2>
+                <p style={{ fontFamily: serif, fontSize: 15, color: "#888", fontStyle: "italic", marginBottom: 20, lineHeight: 1.6 }}>{post.subtitle}</p>
+                <p style={{ fontFamily: sans, fontSize: 14, color: "#666", lineHeight: 1.8, marginBottom: 28 }}>
+                  {post.excerpt.slice(0, 160)}…
+                </p>
+                <span style={{ fontFamily: sans, fontSize: 11, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: "#a69f3f", borderBottom: "1px solid #a69f3f", paddingBottom: 2 }}>
+                  Read More →
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}
+
+// ─── Addie+ BLOG POST PAGE ────────────────────────────────────────────────────────
+
+export function AddieBlogPostPage({ navigate, postId }) {
+  const serif = "'Cormorant Garamond', Georgia, serif";
+  const sans  = "'DM Sans', system-ui, sans-serif";
+
+  const post = BLOG_POSTS.find(p => p.id === postId);
+
+  if (!post) {
+    return (
+      <div style={{ paddingTop: 72, padding: "120px 40px", textAlign: "center" }}>
+        <p style={{ fontFamily: sans, color: "#888" }}>Post not found.</p>
+        <button onClick={() => navigate("addie-blog")}
+          style={{ marginTop: 24, fontFamily: sans, fontSize: 12, cursor: "pointer", background: "none", border: "none", textDecoration: "underline", color: "#1a1a1a" }}>
+          ← Back to blog
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div style={{ paddingTop: 72 }}>
+
+      {/* COVER */}
+    <div style={{ height: 400, overflow: "hidden", background: post.coverColor }}>
+      {post.coverImage ? (
+        <img src={post.coverImage} alt={post.title}
+      style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+       ) : (
+        <div style={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 120 }}>
+          {post.coverEmoji}
+        </div>
+      )}
+    </div>
+
+      {/* Article */}
+      <section style={{ padding: "80px 40px 120px", background: "#fafaf8" }}>
+        <div style={{ maxWidth: 720, margin: "0 auto" }}>
+
+          <button onClick={() => navigate("addie-blog")}
+            style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 3, textTransform: "uppercase", color: "#aaa", background: "none", border: "none", cursor: "pointer", padding: 0, marginBottom: 48, display: "flex", alignItems: "center", gap: 8 }}>
+            ← All Stories
+          </button>
+
+          <div style={{ display: "flex", gap: 16, marginBottom: 24 }}>
+            <span style={{ fontFamily: sans, fontSize: 10, fontWeight: 500, letterSpacing: 2, textTransform: "uppercase", color: "#aaa" }}>{post.date}</span>
+            <span style={{ color: "#ddd" }}>·</span>
+            <span style={{ fontFamily: sans, fontSize: 10, fontWeight: 500, letterSpacing: 2, textTransform: "uppercase", color: "#aaa" }}>{post.city}</span>
+            <span style={{ color: "#ddd" }}>·</span>
+            <span style={{ fontFamily: sans, fontSize: 10, fontWeight: 500, letterSpacing: 2, textTransform: "uppercase", color: "#aaa" }}>{post.cuisine}</span>
+          </div>
+
+          <h1 style={{ fontFamily: serif, fontSize: "clamp(36px, 5vw, 64px)", fontWeight: 300, color: "#1a1a1a", lineHeight: 0.95, marginBottom: 20 }}>
+            {post.title}
+          </h1>
+          <p style={{ fontFamily: serif, fontSize: 20, color: "#888", fontStyle: "italic", marginBottom: 48, lineHeight: 1.5 }}>
+            {post.subtitle}
+          </p>
+
+          <div style={{ width: 60, height: 1, background: "#1a1a1a", marginBottom: 48 }} />
+
+          {post.body.split('\n\n').map((para, i) => (
+            <p key={i} style={{ fontFamily: serif, fontSize: 18, color: "#444", lineHeight: 1.9, marginBottom: 28 }}>
+              {para}
+            </p>
+          ))}
+
+          <div style={{ marginTop: 80, paddingTop: 40, borderTop: "1px solid rgba(0,0,0,0.06)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <button onClick={() => navigate("addie-blog")}
+              style={{ fontFamily: sans, fontSize: 11, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: "#1a1a1a", background: "none", border: "none", cursor: "pointer", padding: 0 }}>
+              ← All Stories
+            </button>
+            <span style={{ fontFamily: serif, fontSize: 14, color: "#aaa", fontStyle: "italic" }}>addie+ · The Culinary Diary</span>
           </div>
         </div>
       </section>

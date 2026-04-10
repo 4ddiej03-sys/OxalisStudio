@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Nav from "./components/Nav";
 import HomePage from "./pages/HomePage";
 import { Footer } from "./pages/OtherPages";
-import { AboutPage, APPPage, PublicationPage, SJACPage, AddiePage, JadorePage, SkillsPage, ContactPage } from "./pages/OtherPages";
+import { AboutPage, APPPage, PublicationPage, SJACPage, AddiePage, JadorePage, SkillsPage, ContactPage, AddieBlogPage, AddieBlogPostPage } from "./pages/OtherPages";
 
 export default function App() {
   const [page, setPage] = useState("home");
@@ -30,6 +30,10 @@ export default function App() {
     publication:<PublicationPage navigate={navigate} />,
     sjac:       <SJACPage navigate={navigate} />,
     addie:      <AddiePage navigate={navigate} />,
+    "addie-blog": <AddieBlogPage navigate={navigate} />,
+    // Blog posts — one entry per post id:
+      "blog-kazu-montreal":       <AddieBlogPostPage navigate={navigate} postId="kazu-montreal" />,
+      "blog-banana-leaf-vancouver": <AddieBlogPostPage navigate={navigate} postId="banana-leaf-vancouver" />,   
     jadore:     <JadorePage navigate={navigate} />,
     skills:     <SkillsPage navigate={navigate} />,
     contact:    <ContactPage navigate={navigate} />,
