@@ -227,6 +227,8 @@ export function PublicationPage({ navigate }) {
   );
 }
 
+
+
 // src/pages/SJACPage.jsx
 
 export function SJACPage({ navigate }) {
@@ -234,16 +236,16 @@ export function SJACPage({ navigate }) {
   const sans  = "'DM Sans', system-ui, sans-serif";
 
   const GALLERY = [
-  '/sjac-1.jpg',
-  '/sjac-2.jpg',
-  '/sjac-3.jpg',
-  '/sjac-4.jpg',
-  '/sjac-5.jpg',
-  '/sjac-6.jpg',
-  '/sjac-7.jpg',
-  '/sjac-8.jpg',
-  '/sjac-9.jpg',
-];
+    { src: '/sjac-1.jpg', type: 'image' },
+    { src: '/sjac-2.jpg', type: 'image' },
+    { src: '/sjac-3.jpg', type: 'image' },
+    { src: '/sjac-4.jpg', type: 'image', fit: 'contain' },
+    { src: '/sjac-5.mp4', type: 'video' },
+    { src: '/sjac-6.jpg', type: 'image', fit: 'contain' },
+    { src: '/sjac-7.jpg', type: 'image' },
+    { src: '/sjac-8.jpg', type: 'image' },
+    { src: '/sjac-9.jpg', type: 'image' },
+  ];
 
   return (
     <div style={{ paddingTop: 72 }}>
@@ -326,7 +328,8 @@ export function SJACPage({ navigate }) {
         </div>
       </section>
 
-      {/* ↓ THIS IS THE NEW 3×3 PHOTO GRID SECTION */}
+      {/* ↓ THIS IS THE NEW 3×3 PHOTO GRID SECTION */}  
+      
       <section style={{ padding: "100px 40px", background: "#fafaf8" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <p style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 4, textTransform: "uppercase", color: "#888", marginBottom: 16 }}>Photography</p>
@@ -334,14 +337,8 @@ export function SJACPage({ navigate }) {
             Behind the<br /><em style={{ fontStyle: "italic", fontWeight: 700 }}>Practice</em>
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 4 }}>
-            {GALLERY.map((src, i) => (
-              <div key={i} style={{ aspectRatio: "1/1", overflow: "hidden" }}>
-                <img
-                  src={src}
-                  alt={`SJAC photo ${i + 1}`}
-                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-                />
-              </div>
+            {GALLERY.map((item, i) => (
+                <GridItem item={item} index={i} />
             ))}
           </div>
         </div>
@@ -437,21 +434,22 @@ export function AddiePage({ navigate }) {
         </div>
       </section>
 
-      {/* Values */}
+      {/* HIGHLIGHTS OF THE WEEK */}
       <section style={{ padding: "100px 40px", background: "#1a1a1a" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <p style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 4, textTransform: "uppercase", color: "#2d6a4f", marginBottom: 16 }}>Places that</p>
+          <p style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 4, textTransform: "uppercase", color: "#fffa63", marginBottom: 16 }}>Highlights of the week</p>
           <h2 style={{ fontFamily: serif, fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 300, color: "#f5f0e8", lineHeight: 1, marginBottom: 72 }}>
-            Places we visited<br /><em style={{ fontStyle: "italic", fontWeight: 700 }}>so far</em>
+            Chomna Thai<br /><em style={{ fontStyle: "italic", fontWeight: 700, fontSize: 24 }}>Thai Cuisine</em>
           </h2>
+          <p style={{ fontFamily: sans, fontSize: 16, color: "#f5f0e8", lineHeight: 1.9, marginBottom: 24 }}>
+              We hope that what we write here will bring you joy in reading and motivate you to get up, rush to these places, and experience the beautifully prepared food at your table.
+            </p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 2, background: "rgba(255,255,255,0.04)" }}>
             {[
               { title: "Kazu", desc: "Montreal, Japanese.", icon: "🍣" },
               { title: "Momofuku", desc: "Toronto, Fusion.", icon: "🍜" },
-              { title: "Delara", desc: "Vancouver, Persian.", icon: "🧆" },
-              { title: "Origo", desc: "Vancouver, French.", icon: "🥖" },
-              { title: "East is East", desc: "Vancouver, Indian", icon: "🍛" },
-              { title: "Banana Leaf", desc: "Vancouver, Malaysian.", icon: "🍲" }
+              { title: "Delara", desc: "Vancouver, Persian.", icon: "🧆" }
+              
               
             ].map((v, i) => (
               <div key={i} style={{ padding: "48px 40px", background: "#1a1a1a" }}>
@@ -490,7 +488,7 @@ export function AddiePage({ navigate }) {
   );
 }
 
-// ─── GridItem (for JadorePage videos) START ───────────────────────────────────────
+// ─── GridItem (for JadorePage videos + ALL VIDEO & IMAGE) START ───────────────────────────────────────
 
 function GridItem({ item, index }) {
   const videoRef = useRef(null);
@@ -510,29 +508,29 @@ function GridItem({ item, index }) {
 
   if (item.type === 'image') {
     return (
-      <div style={{ aspectRatio: "1/1", overflow: "hidden" }}>
-        <img src={item.src} alt={`Jadore photo ${index + 1}`}
-          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+      <div style={{ aspectRatio: "1/1", overflow: "hidden", background: "#f0f0ee" }}>
+        <img src={item.src} alt={`SJAC photo ${index + 1}`}
+          style={{ width: "100%", height: "100%", objectFit: item.fit || "cover", display: "block" }} />
       </div>
     );
   }
 
   return (
-    <div style={{ aspectRatio: "1/1", overflow: "hidden", position: "relative" }}>
-      <video ref={videoRef} src={item.src} loop muted playsInline
-        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-      <div style={{ position: "absolute", bottom: 10, left: 10, display: "flex", gap: 6 }}>
-        <button onClick={togglePlay}
-          style={{ background: "rgba(0,0,0,0.5)", border: "none", borderRadius: "50%", width: 36, height: 36, cursor: "pointer", color: "#fff", fontSize: 14, display: "flex", alignItems: "center", justifyContent: "center" }}>
-          {playing ? '⏸' : '▶'}
-        </button>
-        <button onClick={toggleSound}
-          style={{ background: "rgba(0,0,0,0.5)", border: "none", borderRadius: "50%", width: 36, height: 36, cursor: "pointer", color: "#fff", fontSize: 14, display: "flex", alignItems: "center", justifyContent: "center" }}>
-          {muted ? '🔇' : '🔊'}
-        </button>
-      </div>
+  <div style={{ aspectRatio: "1/1", overflow: "hidden", position: "relative", background: "#000" }}>
+    <video ref={videoRef} src={item.src} loop muted playsInline
+      style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }} />
+    <div style={{ position: "absolute", bottom: 10, left: 10, display: "flex", gap: 6 }}>
+      <button onClick={togglePlay}
+        style={{ background: "rgba(0,0,0,0.5)", border: "none", borderRadius: "50%", width: 36, height: 36, cursor: "pointer", color: "#fff", fontSize: 14, display: "flex", alignItems: "center", justifyContent: "center" }}>
+        {playing ? '⏸' : '▶'}
+      </button>
+      <button onClick={toggleSound}
+        style={{ background: "rgba(0,0,0,0.5)", border: "none", borderRadius: "50%", width: 36, height: 36, cursor: "pointer", color: "#fff", fontSize: 14, display: "flex", alignItems: "center", justifyContent: "center" }}>
+        {muted ? '🔇' : '🔊'}
+      </button>
     </div>
-  );
+  </div>
+);
 }
 // ─── GridItem (for JadorePage videos) END ───────────────────────────────────────
 
