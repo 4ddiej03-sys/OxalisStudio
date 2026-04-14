@@ -336,7 +336,7 @@ export function SJACPage({ navigate }) {
           <h2 style={{ fontFamily: serif, fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 300, color: "#1a1a1a", lineHeight: 1, marginBottom: 60 }}>
             Behind the<br /><em style={{ fontStyle: "italic", fontWeight: 700 }}>Practice</em>
           </h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 4 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 2, background: "rgba(255,255,255,0.04)" }}>
             {GALLERY.map((item, i) => (
                 <GridItem item={item} index={i} />
             ))}
