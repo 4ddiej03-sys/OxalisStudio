@@ -308,7 +308,7 @@ export function SJACPage({ navigate }) {
           <h2 style={{ fontFamily: serif, fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 300, color: "#f5f0e8", lineHeight: 1, marginBottom: 72 }}>
             Projects<br /><em style={{ fontStyle: "italic", fontWeight: 700 }}>collaborated</em>
           </h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 2, background: "rgba(255,255,255,0.04)" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 4 }}>
             {[
               { title: "Newsletter", desc: "Newsletter Design produced monthly. Special event photography", icon: "🥋" },
               { title: "Photography", desc: "A branding project for burger joint in Hasting Sunrise, Vancouver.", icon: "🍔" },
