@@ -336,7 +336,7 @@ export function SJACPage({ navigate }) {
           <h2 style={{ fontFamily: serif, fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 300, color: "#1a1a1a", lineHeight: 1, marginBottom: 60 }}>
             Behind the<br /><em style={{ fontStyle: "italic", fontWeight: 700 }}>Practice</em>
           </h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 4 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 2, background: "rgba(255,255,255,0.04)" }}>
             {GALLERY.map((item, i) => (
                 <GridItem item={item} index={i} />
             ))}
@@ -1138,19 +1138,28 @@ export function Footer({ navigate }) {
             <div style={{ fontFamily: serif, fontSize: 22, fontWeight: 300, color: "#f5f0e8", letterSpacing: 3, textTransform: "uppercase", marginBottom: 4 }}>
               Oxalis <span style={{ fontWeight: 700 }}>Studio</span>
             </div>
-            <div style={{ fontFamily: sans, fontSize: 10, color: "#555", letterSpacing: 3, textTransform: "uppercase", marginBottom: 20 }}>C r e a t i v e</div>
+            <div style={{ fontFamily: sans, fontSize: 10, color: "#555", letterSpacing: 3, textTransform: "uppercase", marginBottom: 20 }}>Creative</div>
             <p style={{ fontFamily: sans, fontSize: 14, color: "rgba(245,240,232,0.4)", lineHeight: 1.8, maxWidth: 280 }}>
-              A creative studio specialising in app development, brand identity, advertising, photography and creative direction.
+              Specialising in app development, brand identity, advertising, photography and creative direction.
             </p>
           </div>
           <div>
             <p style={{ fontFamily: sans, fontSize: 10, fontWeight: 500, letterSpacing: 3, textTransform: "uppercase", color: "#555", marginBottom: 20 }}>Studio</p>
             {["home", "portfolio", "about", "skills", "contact"].map(p => (
-              <button key={p} onClick={() => navigate(p)}
-                style={{ display: "block", background: "none", border: "none", cursor: "pointer", fontFamily: sans, fontSize: 14, color: "rgba(245,240,232,0.5)", marginBottom: 12, textTransform: "capitalize", textAlign: "left", padding: 0 }}>
-                {p}
-              </button>
-            ))}
+              <button key={p} onClick={() => {
+                if (p === "portfolio") {
+                  navigate("home");
+                  setTimeout(() => {
+                    document.getElementById("featured")?.scrollIntoView({ behavior: "smooth" });
+                  }, 100);
+                } else {
+                  navigate(p);
+                }
+              }}
+    style={{ display: "block", background: "none", border: "none", cursor: "pointer", fontFamily: sans, fontSize: 14, color: "rgba(245,240,232,0.5)", marginBottom: 12, textTransform: "capitalize", textAlign: "left", padding: 0 }}>
+    {p}
+  </button>
+))}
           </div>
           <div>
             <p style={{ fontFamily: sans, fontSize: 10, fontWeight: 500, letterSpacing: 3, textTransform: "uppercase", color: "#555", marginBottom: 20 }}>Products</p>

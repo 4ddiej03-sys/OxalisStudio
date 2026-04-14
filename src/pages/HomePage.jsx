@@ -180,7 +180,12 @@ export default function HomePage({ navigate }) {
               OXALIS Studio is a creative studio specialising in app development, brand identity, advertising, UI/UX design and creative direction.
             </p>
             <div style={{ display: "flex", gap: 16, flexWrap: "wrap", opacity: visible ? 1 : 0, transition: "all 0.8s 0.5s" }}>
-              <button onClick={() => navigate("portfolio")}
+              <button onClick={() => {
+                navigate("home");
+                setTimeout(() => {
+                  document.getElementById("featured")?.scrollIntoView({ behavior: "smooth" });
+                }, 100);
+              }}
                 style={{ fontFamily: sans, fontSize: 13, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", background: "#1a1a1a", color: "#fff", border: "none", padding: "16px 36px", cursor: "pointer" }}>
                 View Our Work
               </button>
@@ -210,7 +215,7 @@ export default function HomePage({ navigate }) {
       </div>
 
       {/* Featured Work */}
-      <section style={{ padding: "120px 40px", background: "#fafaf8" }}>
+      <section id="featured" style={{ padding: "120px 40px", background: "#fafaf8" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 72 }}>
             <div>
@@ -219,7 +224,12 @@ export default function HomePage({ navigate }) {
                 Featured<br /><em style={{ fontStyle: "italic", fontWeight: 700 }}>Projects</em>
               </h2>
             </div>
-            <button onClick={() => navigate("portfolio")}
+            <button onClick={() => {
+              navigate("home");
+              setTimeout(() => {
+                document.getElementById("featured")?.scrollIntoView({ behavior: "smooth" });
+              }, 100);
+            }}
               style={{ fontFamily: sans, fontSize: 12, letterSpacing: 2, textTransform: "uppercase", background: "none", border: "none", color: "#888", cursor: "pointer", textDecoration: "underline" }}>
               View all work →
             </button>
