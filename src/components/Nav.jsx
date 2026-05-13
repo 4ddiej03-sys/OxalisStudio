@@ -47,8 +47,8 @@ export default function Nav({ page, navigate }) {
       }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", height: 72, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <button onClick={() => navigate("home")} style={{ background: "none", border: "none", cursor: "pointer", textAlign: "left" }}>
-            <div style={{ fontFamily: serif, fontSize: 22, fontWeight: 300, color: "#1a1a1a", letterSpacing: 3, textTransform: "uppercase" }}>
-              Oxalis <span style={{ fontWeight: 700 }}>Studio</span>
+            <div style={{ fontFamily: serif, fontSize: 22, fontWeight: 300, color: "#e80001", letterSpacing: 3, textTransform: "uppercase" }}>
+              Oxalis <span style={{ fontWeight: 700, color: "#1a1a1a" }}>Studio</span>
             </div>
             <div style={{ fontFamily: sans, fontSize: 10, color: "#a0a0a0", letterSpacing: 3, textTransform: "uppercase", marginTop: 2 }}>
               C r e a t i v e

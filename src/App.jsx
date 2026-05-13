@@ -32,8 +32,11 @@ export default function App() {
     addie:      <AddiePage navigate={navigate} />,
     "addie-blog": <AddieBlogPage navigate={navigate} />,
     // Blog posts — one entry per post id:
-      "blog-kazu-montreal":       <AddieBlogPostPage navigate={navigate} postId="kazu-montreal" />,
-      "blog-banana-leaf-vancouver": <AddieBlogPostPage navigate={navigate} postId="banana-leaf-vancouver" />,   
+        "blog-romulus-remus-auckland":       <AddieBlogPostPage navigate={navigate} postId="romulus-remus-auckland" />,
+        "blog-chom-na-thai-auckland":       <AddieBlogPostPage navigate={navigate} postId="chom-na-thai-auckland" />,  
+        "blog-kazu-montreal":               <AddieBlogPostPage navigate={navigate} postId="kazu-montreal" />,
+        "blog-banana-leaf-vancouver":       <AddieBlogPostPage navigate={navigate} postId="banana-leaf-vancouver" />,
+        "blog-maxinecafe-vancouver":       <AddieBlogPostPage navigate={navigate} postId="maxinecafe-vancouver" />,
     jadore:     <JadorePage navigate={navigate} />,
     skills:     <SkillsPage navigate={navigate} />,
     contact:    <ContactPage navigate={navigate} />,

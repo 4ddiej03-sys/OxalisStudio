@@ -33,7 +33,7 @@ const FEATURED = [
   {
     id: 5, title: "J'Adore by Joe", subtitle: "Photography",
     tags: ["Portrait", "Events", "Product", "Commercials"],
-    desc: "Bridging the natural world with digital creativity. Clean, minimal, and timeless — searching for the precise angles that unveil the finest details.",
+    desc: "Bridging the natural world with digital creativity. Clean, minimal, and timeless - searching for the precise angles that unveil the finest details.",
     url: null, page: "jadore",
     color: "#592d6a", bg: "#edd9f5", emoji: "📸", year: "2009",
   },
@@ -177,7 +177,7 @@ export default function HomePage({ navigate }) {
               that matter.
             </h1>
             <p style={{ fontFamily: sans, fontSize: 18, fontWeight: 300, color: "#666", lineHeight: 1.8, maxWidth: 560, marginBottom: 56, opacity: visible ? 1 : 0, transition: "all 0.8s 0.3s" }}>
-              OXALIS Studio is a creative studio specialising in app development, brand identity, advertising, UI/UX design and creative direction.
+              Working across branding, UI/UX, and visual storytelling, the studio partners with startups shaping something new and established businesses ready to evolve. Each project is grounded in strategy and carried through with precision—balancing aesthetics with real-world function.
             </p>
             <div style={{ display: "flex", gap: 16, flexWrap: "wrap", opacity: visible ? 1 : 0, transition: "all 0.8s 0.5s" }}>
               <button onClick={() => {
@@ -278,7 +278,7 @@ export default function HomePage({ navigate }) {
               Where creativity<br />meets <em style={{ fontStyle: "italic", fontWeight: 700 }}>technology.</em>
             </h2>
             <p style={{ fontFamily: sans, fontSize: 15, fontWeight: 300, color: "rgba(245,240,232,0.6)", lineHeight: 1.9, marginBottom: 40 }}>
-              OXALIS Studio was founded with a simple belief that beautiful design and powerful technology should be accessible to everyone. From AI-powered apps to brand identities, we create work that is both visually stunning and deeply functional.
+              OXALIS STUDIO is a design studio focused on building brands and digital products that feel clear, relevant, and built to last.
             </p>
             <button onClick={() => navigate("about")}
               style={{ fontFamily: sans, fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", background: "transparent", color: "#f5f0e8", border: "1px solid rgba(245,240,232,0.3)", padding: "14px 32px", cursor: "pointer" }}>
@@ -311,6 +311,9 @@ export default function HomePage({ navigate }) {
           </h2>
           <p style={{ fontFamily: sans, fontSize: 16, color: "#888", lineHeight: 1.7, marginBottom: 48 }}>
             We work with startups, entrepreneurs and brands who want to build something meaningful. Every project starts with a conversation.
+          </p>
+          <p style={{ fontFamily: serif, fontSize: 18, fontWeight: 700, color: "#1a1a1a", lineHeight: 1.7, marginBottom: 48 }}>
+            Thoughtful design. Practical outcomes. Built to move businesses forward.
           </p>
           <button onClick={() => navigate("contact")}
             style={{ fontFamily: sans, fontSize: 13, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", background: "#1a1a1a", color: "#fff", border: "none", padding: "18px 48px", cursor: "pointer" }}>

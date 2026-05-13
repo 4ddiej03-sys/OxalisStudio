@@ -5,6 +5,7 @@ import publicationPhoto from '../assets/publication-profile.jpg'
 import sjacPhoto from '../assets/sjac-profile.jpg'
 import addiePhoto from '../assets/addie-profile.jpg'
 import jadorePhoto from '../assets/jadore-profile.jpg'
+import oxalisstudioPhoto from '../assets/oxalisstudio-profile.png'
 
 
 
@@ -17,7 +18,6 @@ export function APPPage({ navigate }) {
   const serif = "'Cormorant Garamond', Georgia, serif";
   const sans  = "'DM Sans', system-ui, sans-serif";
 
-  {/* ↓ THIS IS THE PORTFOLIO SECTION */}
   const PROJECTS = [
     {
       title: "Che AF", subtitle: "AI Recipe App · 2026",
@@ -26,7 +26,7 @@ export function APPPage({ navigate }) {
       url: "https://che-af.vercel.app", emoji: "🍳", color: "#c4622d", bg: "#fdf5f0",
       highlights: ["Voice navigation — world first for recipe apps", "Fridge scan using Claude Vision AI", "13 languages including Bahasa Indonesia & Filipino", "Pioneer membership system with Stripe payments"],
     },
-    { 
+    {
       title: "Mix-R", subtitle: "AI Cocktail App · 2026",
       tags: ["App Development", "UI/UX Design", "Branding", "Global Design"],
       desc: "An AI cocktail generator covering 50+ cultures worldwide. Scan your bar shelf, discover traditional drinks from Māori kawakawa to Filipino lambanog, and follow step-by-step making mode. Built with React, Supabase and Claude AI.",
@@ -40,19 +40,106 @@ export function APPPage({ navigate }) {
       url: "https://che-af-web.vercel.app", emoji: "🌐", color: "#2d6a4f", bg: "#f0f8f4",
       highlights: ["6 SEO blog articles targeting food and cocktail keywords", "Multi-page React site with hash routing", "Full pricing and features documentation", "Mobile responsive across all breakpoints"],
     },
-];
+  ];
 
   return (
     <div style={{ paddingTop: 72 }}>
-      <section style={{ padding: "100px 40px 60px", background: "#fafaf8" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <p style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 4, textTransform: "uppercase", color: "#888", marginBottom: 16 }}>APP Work</p>
-          <h1 style={{ fontFamily: serif, fontSize: "clamp(40px, 6vw, 80px)", fontWeight: 300, color: "#1a1a1a", lineHeight: 0.95 }}>
-            Selected<br /><em style={{ fontStyle: "italic", fontWeight: 700 }}>Projects</em>
-          </h1>
+
+      {/* ── HEADER — same layout as Publication/SJAC/ADDIE+/J'ADORE ── */}
+      <section style={{ padding: "100px 40px", background: "#fafaf8" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 100, alignItems: "start" }}>
+
+          {/* LEFT — title + description */}
+          <div>
+            <p style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 4, textTransform: "uppercase", color: "#888", marginBottom: 16 }}>App Development</p>
+            <h1 style={{ fontFamily: serif, fontSize: "clamp(40px, 5vw, 72px)", fontWeight: 300, color: "#1a1a1a", lineHeight: 0.95, marginBottom: 40 }}>
+              Built with<br /><em style={{ fontStyle: "italic", fontWeight: 700 }}>AI & Heart.</em>
+            </h1>
+            <div style={{ width: 60, height: 1, background: "#1a1a1a", marginBottom: 40 }} />
+            <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 24 }}>
+              OXALIS Studio builds AI-powered apps that solve real problems beautifully. Our apps are designed from the ground up to be accessible, multilingual and genuinely useful — not just impressive demos.
+            </p>
+            <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 24 }}>
+              Che AF and Mix-R are the studio's flagship products — two apps that help people cook and mix drinks from exactly what they already have. No food waste. No missing ingredients. No excuses.
+            </p>
+            <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 48 }}>
+              Both apps are live and growing — with Pioneer membership, Stripe payments, Supabase cloud sync and Claude AI at their core.
+            </p>
+            <a href="mailto:4ddiej03@gmail.com"
+              style={{ fontFamily: sans, fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: "#1a1a1a", textDecoration: "none", borderBottom: "1px solid #1a1a1a", paddingBottom: 4 }}>
+              Get in Touch →
+            </a>
+          </div>
+
+          {/* RIGHT — Che AF + Mix-R logos filling the white space */}
+          <div>
+            {/* Che AF logo card */}
+            <div style={{ background: "#fdf5f0", border: "1px solid rgba(196,98,45,0.15)", borderRadius: 16, padding: "48px 40px", marginBottom: 16, display: "flex", alignItems: "center", gap: 28 }}>
+              <div style={{ width: 80, height: 80, background: "#c4622d", borderRadius: 18, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 40, flexShrink: 0 }}>
+                🍳
+              </div>
+              <div>
+                <div style={{ fontFamily: serif, fontSize: 32, fontWeight: 700, color: "#1a1a1a", lineHeight: 1, marginBottom: 6 }}>
+                  Che <em style={{ color: "#c4622d", fontStyle: "italic" }}>AF</em>
+                </div>
+                <div style={{ fontFamily: sans, fontSize: 12, color: "#c4622d", fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", marginBottom: 12 }}>
+                  Cook Like You Know
+                </div>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 16 }}>
+                  {["AI Recipes", "Fridge Scan", "Voice Nav", "13 Languages"].map((tag, i) => (
+                    <span key={i} style={{ fontFamily: sans, fontSize: 10, color: "#c4622d", border: "1px solid rgba(196,98,45,0.3)", padding: "3px 8px" }}>{tag}</span>
+                  ))}
+                </div>
+                <a href="https://che-af.vercel.app" target="_blank" rel="noopener noreferrer"
+                  style={{ fontFamily: sans, fontSize: 11, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: "#c4622d", textDecoration: "none" }}>
+                  View Live ↗
+                </a>
+              </div>
+            </div>
+
+            {/* Mix-R logo card */}
+            <div style={{ background: "#f0f4ff", border: "1px solid rgba(37,99,235,0.15)", borderRadius: 16, padding: "48px 40px", marginBottom: 32, display: "flex", alignItems: "center", gap: 28 }}>
+              <div style={{ width: 80, height: 80, background: "#2563eb", borderRadius: 18, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 40, flexShrink: 0 }}>
+                🍹
+              </div>
+              <div>
+                <div style={{ fontFamily: serif, fontSize: 32, fontWeight: 700, color: "#1a1a1a", lineHeight: 1, marginBottom: 6 }}>
+                  Mix-<em style={{ color: "#2563eb", fontStyle: "italic" }}>R</em>
+                </div>
+                <div style={{ fontFamily: sans, fontSize: 12, color: "#2563eb", fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", marginBottom: 12 }}>
+                  Shake What You've Got
+                </div>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 16 }}>
+                  {["AI Cocktails", "Shelf Scan", "50+ Cultures", "Making Mode"].map((tag, i) => (
+                    <span key={i} style={{ fontFamily: sans, fontSize: 10, color: "#2563eb", border: "1px solid rgba(37,99,235,0.3)", padding: "3px 8px" }}>{tag}</span>
+                  ))}
+                </div>
+                <a href="https://mix-r.vercel.app" target="_blank" rel="noopener noreferrer"
+                  style={{ fontFamily: sans, fontSize: 11, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: "#2563eb", textDecoration: "none" }}>
+                  View Live ↗
+                </a>
+              </div>
+            </div>
+
+            {/* Stats grid */}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1, background: "rgba(0,0,0,0.04)" }}>
+              {[
+                { label: "Tech Stack", value: "React + Supabase + Claude AI" },
+                { label: "Launched", value: "2026" },
+                { label: "Users", value: "Pioneer wave — 200 spots" },
+                { label: "Payments", value: "Stripe · NZD · Live" },
+              ].map((item, i) => (
+                <div key={i} style={{ background: "#fafaf8", padding: "20px 24px" }}>
+                  <p style={{ fontFamily: sans, fontSize: 10, fontWeight: 500, letterSpacing: 3, textTransform: "uppercase", color: "#aaa", marginBottom: 6 }}>{item.label}</p>
+                  <p style={{ fontFamily: serif, fontSize: 15, color: "#1a1a1a" }}>{item.value}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
+      {/* ── PROJECT LIST ── */}
       <section style={{ padding: "40px 40px 120px", background: "#fafaf8" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", flexDirection: "column", gap: 2 }}>
           {PROJECTS.map((p, i) => (
@@ -72,7 +159,7 @@ export function APPPage({ navigate }) {
                       style={{ fontFamily: sans, fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: p.color, textDecoration: "none" }}>
                       View Live ↗
                     </a>
-                    ) : p.url !== "#" ? (
+                  ) : p.url !== "#" ? (
                     <button onClick={() => navigate(p.url)}
                       style={{ fontFamily: sans, fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: p.color, background: "none", border: "none", cursor: "pointer", padding: 0 }}>
                       View Project ↗
@@ -98,6 +185,36 @@ export function APPPage({ navigate }) {
           ))}
         </div>
       </section>
+
+      {/* ── APP INFO ── */}
+      <section style={{ padding: "120px 40px", background: "#818181" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }}>
+          <div>
+            <p style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 4, textTransform: "uppercase", color: "#f5f0e8", marginBottom: 24 }}>About the Apps</p>
+            <h2 style={{ fontFamily: serif, fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 300, color: "#1a1a1a", lineHeight: 1.1, marginBottom: 32 }}>
+              Where creativity<br />meets <em style={{ fontStyle: "italic", fontWeight: 700 }}>technology.</em>
+            </h2>
+            <p style={{ fontFamily: sans, fontSize: 15, fontWeight: 300, color: "rgba(245,240,232,0.6)", lineHeight: 1.9, marginBottom: 40 }}>
+              OXALIS Studio was founded with a simple belief that beautiful design and powerful technology should be accessible to everyone. From AI-powered apps to brand identities, we create work that is both visually stunning and deeply functional.
+            </p>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+            {[
+              { num: "2", label: "Apps Launched", sub: "Che AF & Mix-R" },
+              { num: "13", label: "Languages", sub: "Global accessibility" },
+              { num: "200", label: "Pioneer Users", sub: "First wave" },
+              { num: "50+", label: "Cultures", sub: "Mix-R coverage" },
+            ].map((s, i) => (
+              <div key={i} style={{ padding: 28, border: "1px solid rgba(245,240,232,0.08)" }}>
+                <div style={{ fontFamily: serif, fontSize: 48, fontWeight: 700, color: "#f5f0e8", lineHeight: 1, marginBottom: 8 }}>{s.num}</div>
+                <div style={{ fontFamily: sans, fontSize: 13, fontWeight: 600, color: "rgba(245,240,232,0.7)", marginBottom: 4 }}>{s.label}</div>
+                <div style={{ fontFamily: sans, fontSize: 11, color: "rgba(245,240,232,0.3)" }}>{s.sub}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }
@@ -109,16 +226,16 @@ export function PublicationPage({ navigate }) {
   const sans  = "'DM Sans', system-ui, sans-serif";
 
     const GALLERY = [
-    'publication-1.jpg',
-    'publication-2.jpg',
-    'publication-3.jpg',
-    'publication-4.jpg',
-    'publication-5.jpg',
-    'publication-6.jpg',
-    'publication-7.jpg',
-    'publication-8.jpg',
-    'publication-9.jpg',
-  ];
+  { src: '/publication-1.jpg', type: 'image' },
+  { src: '/publication-2.jpg', type: 'image' },
+  { src: '/publication-3.jpg', type: 'image' },
+  { src: '/publication-4.jpg', type: 'image' },
+  { src: '/publication-5.jpg', type: 'image' },
+  { src: '/publication-6.jpg', type: 'image' },
+  { src: '/publication-7.jpg', type: 'image' },
+  { src: '/publication-8.jpg', type: 'image' },
+  { src: '/publication-9.jpg', type: 'image' },
+];
 
 
   return (
@@ -140,7 +257,7 @@ export function PublicationPage({ navigate }) {
             <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 48 }}>
               OXALIS Studio’s latest project was born from a frustration with food waste and a love of cooking. Che AF and Mix-R are the result: two AI-powered apps that help people cook and mix drinks from what they already have.
             </p>
-            <a href="mailto:support@che-af.vercel.app"
+            <a href="mailto:4ddiej03@gmail.com"
               style={{ fontFamily: sans, fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: "#1a1a1a", textDecoration: "none", borderBottom: "1px solid #1a1a1a", paddingBottom: 4 }}>
               Get in Touch →
             </a>
@@ -183,12 +300,12 @@ export function PublicationPage({ navigate }) {
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 2, background: "rgba(255,255,255,0.04)" }}>
             {[
-              { title: "SJAC", desc: "Newsletter Design produced monthly. Special event photogragrphy", icon: "🥋" },
-              { title: "the LOFT", desc: "A branding project for burger joint in Hasting Sunrise, Vancouver.", icon: "🍔" },
-              { title: "OLYMPIA Magazine", desc: "A magazine for Women to empowered Women.", icon: "📚" },
-              { title: "Jazz Times", desc: "A collection of stories from musicians to inspire other musicians.", icon: "🎷" },
-              { title: "Cover Design", desc: "Book cover redesign for The Arabian Nights", icon: "🌍" },
-              { title: "Aotearoa Tours", desc: "A travel magazine guide of travelling New Zealand.", icon: "🛫" }
+              { title: "SJAC", desc: "Newsletter Design produced monthly. Special event photogragrphy"},
+              { title: "the LOFT", desc: "A branding project for burger joint in Hasting Sunrise, Vancouver."},
+              { title: "OLYMPIA Magazine", desc: "A magazine for Women to empowered Women."},
+              { title: "Jazz Times", desc: "A collection of stories from musicians to inspire other musicians."},
+              { title: "Cover Design", desc: "Book cover redesign for The Arabian Nights"},
+              { title: "Aotearoa Tours", desc: "A travel magazine guide of travelling New Zealand." }
               
             ].map((v, i) => (
               <div key={i} style={{ padding: "48px 40px", background: "#1a1a1a" }}>
@@ -209,14 +326,8 @@ export function PublicationPage({ navigate }) {
             Behind the<br /><em style={{ fontStyle: "italic", fontWeight: 700 }}>Projects</em>
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 4 }}>
-            {GALLERY.map((src, i) => (
-              <div key={i} style={{ aspectRatio: "1/1", overflow: "hidden" }}>
-                <img
-                  src={src}
-                  alt={`Publication photo ${i + 1}`}
-                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-                />
-              </div>
+            {GALLERY.map((item, i) => (
+              <GridItem key={i} item={item} index={i} />
             ))}
           </div>
         </div>
@@ -267,7 +378,7 @@ export function SJACPage({ navigate }) {
             <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 48 }}>
               Creating shorts videos during pandemic promo to bring harmony of practice of non-contact basic principle.
             </p>
-            <a href="mailto:support@oxalis-studio.vercel.app"
+            <a href="mailto:4ddiej03@gmail.com"
               style={{ fontFamily: sans, fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: "#1a1a1a", textDecoration: "none", borderBottom: "1px solid #1a1a1a", paddingBottom: 4 }}>
               Get in Touch →
             </a>
@@ -310,12 +421,12 @@ export function SJACPage({ navigate }) {
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 4 }}>
             {[
-              { title: "Newsletter", desc: "Newsletter Design produced monthly. Special event photography", icon: "🥋" },
-              { title: "Photography", desc: "A branding project for burger joint in Hasting Sunrise, Vancouver.", icon: "🍔" },
-              { title: "Poster", desc: "A magazine for Women to empowered Women.", icon: "📚" },
-              { title: "Promo", desc: "A collection of stories from musicians to inspire other musicians.", icon: "🎷" },
-              { title: "Cover Design", desc: "Book cover redesign for The Arabian Nights", icon: "🌍" },
-              { title: "Aotearoa Tours", desc: "A travel magazine guide of travelling New Zealand.", icon: "🛫" }
+              { title: "Newsletter", desc: "Newsletter Design produced monthly. Special event photography"},
+              { title: "Photography", desc: "A branding project for burger joint in Hasting Sunrise, Vancouver."},
+              { title: "Poster", desc: "A magazine for Women to empowered Women."},
+              { title: "Promo", desc: "A collection of stories from musicians to inspire other musicians."},
+              { title: "Cover Design", desc: "Book cover redesign for The Arabian Nights"},
+              { title: "Aotearoa Tours", desc: "A travel magazine guide of travelling New Zealand."}
 
             ].map((v, i) => (
               <div key={i} style={{ padding: "48px 40px", background: "#1a1a1a" }}>
@@ -400,7 +511,7 @@ export function AddiePage({ navigate }) {
                   Read the Blog →
             </button>
 
-            <a href="mailto:s1mply1rr3s1st4bl3@gmail.com"
+            <a href="mailto:4ddiej03@gmail.com"
               style={{ fontFamily: sans, fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: "#1a1a1a", textDecoration: "none", borderBottom: "1px solid #1a1a1a", paddingBottom: 4 }}>
                   Get in Touch →
             </a>
@@ -446,9 +557,9 @@ export function AddiePage({ navigate }) {
             </p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 2, background: "rgba(255,255,255,0.04)" }}>
             {[
-              { title: "Kazu", desc: "Montreal, Japanese.", icon: "🍣" },
-              { title: "Momofuku", desc: "Toronto, Fusion.", icon: "🍜" },
-              { title: "Delara", desc: "Vancouver, Persian.", icon: "🧆" }
+              { title: "Kazu", desc: "Montreal, Japanese."},
+              { title: "Momofuku", desc: "Toronto, Fusion."},
+              { title: "Delara", desc: "Vancouver, Persian."}
               
               
             ].map((v, i) => (
@@ -488,12 +599,14 @@ export function AddiePage({ navigate }) {
   );
 }
 
+//-------------------------------------------------------------------------------------------------------
 // ─── GridItem (for JadorePage videos + ALL VIDEO & IMAGE) START ───────────────────────────────────────
 
 function GridItem({ item, index }) {
   const videoRef = useRef(null);
   const [playing, setPlaying] = useState(false);
   const [muted, setMuted] = useState(true);
+  const [hovered, setHovered] = useState(false);
 
   const togglePlay = () => {
     if (playing) { videoRef.current.pause(); }
@@ -508,31 +621,66 @@ function GridItem({ item, index }) {
 
   if (item.type === 'image') {
     return (
-      <div style={{ aspectRatio: "1/1", overflow: "hidden", background: "#f0f0ee" }}>
-        <img src={item.src} alt={`SJAC photo ${index + 1}`}
-          style={{ width: "100%", height: "100%", objectFit: item.fit || "cover", display: "block" }} />
+      <div
+        style={{ aspectRatio: "1/1", overflow: "hidden", background: "#f0f0ee", position: "relative", cursor: "zoom-in" }}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
+        <img src={item.src} alt={`photo ${index + 1}`}
+          style={{
+            width: "100%", height: "100%",
+            objectFit: item.fit || "cover",
+            display: "block",
+            transition: "transform 0.4s ease",
+            transform: hovered ? "scale(1.06)" : "scale(1)",
+          }} />
+
+        {/* Hover overlay — pops image up */}
+        {hovered && (
+          <div style={{
+            position: "fixed",
+            top: 0, left: 0, right: 0, bottom: 0,
+            zIndex: 999,
+            background: "rgba(0,0,0,0.85)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            pointerEvents: "none",
+          }}>
+            <img src={item.src} alt={`photo ${index + 1}`}
+              style={{
+                maxWidth: "80vw",
+                maxHeight: "80vh",
+                objectFit: "contain",
+                display: "block",
+                boxShadow: "0 40px 80px rgba(0,0,0,0.6)",
+              }} />
+          </div>
+        )}
       </div>
     );
   }
 
   return (
-  <div style={{ aspectRatio: "1/1", overflow: "hidden", position: "relative", background: "#000" }}>
-    <video ref={videoRef} src={item.src} loop muted playsInline
-      style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }} />
-    <div style={{ position: "absolute", bottom: 10, left: 10, display: "flex", gap: 6 }}>
-      <button onClick={togglePlay}
-        style={{ background: "rgba(0,0,0,0.5)", border: "none", borderRadius: "50%", width: 36, height: 36, cursor: "pointer", color: "#fff", fontSize: 14, display: "flex", alignItems: "center", justifyContent: "center" }}>
-        {playing ? '⏸' : '▶'}
-      </button>
-      <button onClick={toggleSound}
-        style={{ background: "rgba(0,0,0,0.5)", border: "none", borderRadius: "50%", width: 36, height: 36, cursor: "pointer", color: "#fff", fontSize: 14, display: "flex", alignItems: "center", justifyContent: "center" }}>
-        {muted ? '🔇' : '🔊'}
-      </button>
+    <div style={{ aspectRatio: "1/1", overflow: "hidden", position: "relative", background: "#000" }}>
+      <video ref={videoRef} src={item.src} loop muted playsInline
+        style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }} />
+      <div style={{ position: "absolute", bottom: 10, left: 10, display: "flex", gap: 6 }}>
+        <button onClick={togglePlay}
+          style={{ background: "rgba(0,0,0,0.5)", border: "none", borderRadius: "50%", width: 36, height: 36, cursor: "pointer", color: "#fff", fontSize: 14, display: "flex", alignItems: "center", justifyContent: "center" }}>
+          {playing ? '⏸' : '▶'}
+        </button>
+        <button onClick={toggleSound}
+          style={{ background: "rgba(0,0,0,0.5)", border: "none", borderRadius: "50%", width: 36, height: 36, cursor: "pointer", color: "#fff", fontSize: 14, display: "flex", alignItems: "center", justifyContent: "center" }}>
+          {muted ? '🔇' : '🔊'}
+        </button>
+      </div>
     </div>
-  </div>
-);
+  );
 }
+
 // ─── GridItem (for JadorePage videos) END ───────────────────────────────────────
+//-------------------------------------------------------------------------------------------------------
 
 // src/pages/JadorePage.jsx
 export function JadorePage({ navigate }) {
@@ -572,7 +720,7 @@ export function JadorePage({ navigate }) {
             <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 48 }}>
               We let the nature provide as our studio and the beautiful weather as our lighting.
             </p>
-            <a href="mailto:4ddiej03@gmail.com"
+            <a href="mailto:s1mply1rr3s1st4bl3@gmail.com"
               style={{ fontFamily: sans, fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: "#1a1a1a", textDecoration: "none", borderBottom: "1px solid #1a1a1a", paddingBottom: 4 }}>
               Get in Touch →
             </a>
@@ -613,12 +761,12 @@ export function JadorePage({ navigate }) {
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 2, background: "rgba(255,255,255,0.04)" }}>
             {[
-              { title: "Portrait", desc: "Capturing individuals, families and couples in their most natural, beautiful moments.", icon: "📷" },
-              { title: "Event", desc: "Weddings, birthdays and special occasions documented with care and artistry.", icon: "🎉" },
-              { title: "Travel", desc: "Landscapes and cultures from New Zealand, Japan, France, Indonesia and beyond.", icon: "✈️" },
-              { title: "Food", desc: "A collection of culinary moments from restaurants and home kitchens worldwide.", icon: "🍽️" },
-              { title: "Street", desc: "Candid life captured in cities — the poetry of everyday people and places.", icon: "🌆" },
-              { title: "Product", desc: "Clean, editorial product photography for brands and independent makers.", icon: "📦" },
+              { title: "Portrait", desc: "Capturing individuals, families and couples in their most natural, beautiful moments."},
+              { title: "Event", desc: "Weddings, birthdays and special occasions documented with care and artistry."},
+              { title: "Travel", desc: "Landscapes and cultures from New Zealand, Japan, France, Indonesia and beyond."},
+              { title: "Food", desc: "A collection of culinary moments from restaurants and home kitchens worldwide."},
+              { title: "Street", desc: "Candid life captured in cities — the poetry of everyday people and places."},
+              { title: "Product", desc: "Clean, editorial product photography for brands and independent makers."},
             ].map((v, i) => (
               <div key={i} style={{ padding: "48px 40px", background: "#1a1a1a" }}>
                 <span style={{ fontSize: 32, display: "block", marginBottom: 24 }}>{v.icon}</span>
@@ -687,7 +835,6 @@ export function JadorePage({ navigate }) {
 }
 
 
-// src/pages/AboutPage.jsx
 export function AboutPage({ navigate }) {
   const serif = "'Cormorant Garamond', Georgia, serif";
   const sans  = "'DM Sans', system-ui, sans-serif";
@@ -696,6 +843,8 @@ export function AboutPage({ navigate }) {
     <div style={{ paddingTop: 72 }}>
       <section style={{ padding: "100px 40px", background: "#fafaf8" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 100, alignItems: "start" }}>
+
+          {/* LEFT — text */}
           <div>
             <p style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 4, textTransform: "uppercase", color: "#888", marginBottom: 16 }}>About</p>
             <h1 style={{ fontFamily: serif, fontSize: "clamp(40px, 5vw, 72px)", fontWeight: 300, color: "#1a1a1a", lineHeight: 0.95, marginBottom: 40 }}>
@@ -703,29 +852,34 @@ export function AboutPage({ navigate }) {
             </h1>
             <div style={{ width: 60, height: 1, background: "#1a1a1a", marginBottom: 40 }} />
             <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 24 }}>
-              OXALIS Studio works at the intersection of design, technology and culture, building products that are beautiful, functional and accessible to everyone.
+              OXALIS STUDIO operates at the intersection of design, technology, and culture, creating work that is both considered and functional. The focus is simple: to build experiences that feel intuitive, relevant, and enduring—whether launching something new or redefining what already exists.
             </p>
             <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 24 }}>
-              Our work spans app development, brand identity, advertising, UI/UX design and creative photography. We believe that the best design solves real problems, which is why accessibility is central to everything we build.
+              The studio collaborates with early-stage startups in need of clarity and direction, as well as established businesses looking to reposition, refresh, or completely transform their brand. Every project is approached with a balance of strategic thinking and hands-on execution, ensuring the final outcome is not only visually strong, but purposeful and effective.
+            </p>
+            <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 24 }}>
+              Services include brand identity development, rebranding, UI/UX design, digital product design, and visual content creation through photography. Each engagement is tailored, allowing the work to scale from foundational brand systems to fully realized digital experiences.
+            </p>
+            <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 24 }}>
+              Beyond client work, OXALIS STUDIO also develops independent products. Che AF and Mix-R represent the latest of these AI-driven applications designed to address food waste by helping people create meals from what they already have.
             </p>
             <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 48 }}>
-              OXALIS Studio’s latest project was born from a frustration with food waste and a love of cooking. Che AF and Mix-R are the result: two AI-powered apps that help people cook and mix drinks from what they already have.
+              OXALIS STUDIO exists to create work that connects visually, functionally, and culturally — helping businesses launch, evolve, and grow with intention.
             </p>
-            <a href="mailto:support@che-af.vercel.app"
+            <a href="mailto:4ddiej03@gmail.com"
               style={{ fontFamily: sans, fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: "#1a1a1a", textDecoration: "none", borderBottom: "1px solid #1a1a1a", paddingBottom: 4 }}>
               Get in Touch →
             </a>
           </div>
 
+          {/* RIGHT — photo + stats */}
           <div>
-            {/* Profile placeholder */}
-            <div style={{ background: "#f0f0ee", aspectRatio: "3/4", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 32, position: "relative", overflow: "hidden" }}>
-              <div style={{ textAlign: "center" }}>
-                <div style={{ fontSize: 80, marginBottom: 16 }}>🌿</div>
-                <p style={{ fontFamily: serif, fontSize: 18, color: "#aaa", fontStyle: "italic" }}>Agatha Joe</p>
-                <p style={{ fontFamily: sans, fontSize: 12, color: "#bbb", letterSpacing: 2, textTransform: "uppercase", marginTop: 4 }}>Creative Director</p>
-              </div>
-              <div style={{ position: "absolute", bottom: 20, right: 20, fontFamily: sans, fontSize: 11, color: "#bbb", letterSpacing: 1 }}>Photo coming soon</div>
+            <div style={{ aspectRatio: "3/4", overflow: "hidden", marginBottom: 32 }}>
+              <img
+                src={oxalisstudioPhoto}
+                alt="OXALIS Studio"
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              />
             </div>
 
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1, background: "rgba(0,0,0,0.04)" }}>
@@ -733,7 +887,7 @@ export function AboutPage({ navigate }) {
                 { label: "Based", value: "New Zealand" },
                 { label: "Founded", value: "2009" },
                 { label: "Speciality", value: "AI Apps, Branding, Photography" },
-                { label: "Instagram", value: "@cheaf_cooklikeyouknow @mixr_shakewhatyouvegot" },
+                { label: "Instagram", value: "@cheaf_cooklikeyouknow" },
               ].map((item, i) => (
                 <div key={i} style={{ background: "#fafaf8", padding: "20px 24px" }}>
                   <p style={{ fontFamily: sans, fontSize: 10, fontWeight: 500, letterSpacing: 3, textTransform: "uppercase", color: "#aaa", marginBottom: 6 }}>{item.label}</p>
@@ -742,6 +896,7 @@ export function AboutPage({ navigate }) {
               ))}
             </div>
           </div>
+
         </div>
       </section>
 
@@ -754,9 +909,9 @@ export function AboutPage({ navigate }) {
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 2, background: "rgba(255,255,255,0.04)" }}>
             {[
-              { title: "Accessibility First", desc: "Every product we build is designed for everyone — including blind and visually impaired users. Accessibility is never an afterthought.", icon: "🎤" },
-              { title: "Technology with Soul", desc: "AI is only powerful when it serves human needs. We build technology that feels human — warm, helpful and honest.", icon: "🤖" },
-              { title: "Cultural Respect", desc: "Mix-R covers 50+ cultures because every tradition deserves to be celebrated. We design with cultural awareness and respect.", icon: "🌍" },
+              { icon: "🎤", title: "Accessibility First", desc: "Every product we build is designed for everyone — including blind and visually impaired users. Accessibility is never an afterthought." },
+              { icon: "🤖", title: "Technology with Soul", desc: "AI is only powerful when it serves human needs. We build technology that feels human — warm, helpful and honest." },
+              { icon: "🌍", title: "Cultural Respect", desc: "Mix-R covers 50+ cultures because every tradition deserves to be celebrated. We design with cultural awareness and respect." },
             ].map((v, i) => (
               <div key={i} style={{ padding: "48px 40px", background: "#1a1a1a" }}>
                 <span style={{ fontSize: 32, display: "block", marginBottom: 24 }}>{v.icon}</span>
@@ -770,6 +925,7 @@ export function AboutPage({ navigate }) {
     </div>
   );
 }
+
 
 // src/pages/SkillsPage.jsx
 export function SkillsPage({ navigate }) {
@@ -817,7 +973,7 @@ export function SkillsPage({ navigate }) {
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <p style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 4, textTransform: "uppercase", color: "#888", marginBottom: 16 }}>Expertise</p>
           <h1 style={{ fontFamily: serif, fontSize: "clamp(40px, 6vw, 80px)", fontWeight: 300, color: "#1a1a1a", lineHeight: 0.95 }}>
-            Skills &<br /><em style={{ fontStyle: "italic", fontWeight: 700 }}>Experience</em>
+            What<br /><em style={{ fontStyle: "italic", fontWeight: 700 }}>We Do</em>
           </h1>
         </div>
       </section>
@@ -877,19 +1033,54 @@ export function ContactPage({ navigate }) {
             </p>
 
             <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-              {[
-                { label: "General Enquiries", value: "support@oxalisstudio.vercel.app", href: "mailto:support@oxalisstudio.vercel.app" },
-                { label: "Instagram", value: "@cheaf_cooklikeyouknow @mixr_shakewhatyouvegot", href: "https://www.instagram.com/cheaf_cooklikeyouknow https://www.instagram.com/mixr_shakewhatyouvegot" },
-                { label: "Che AF App", value: "che-af.vercel.app", href: "https://che-af.vercel.app" },
-                { label: "Mix-R App", value: "mix-r.vercel.app", href: "https://mix-r.vercel.app" },
-              ].map((c, i) => (
-                <div key={i} style={{ borderBottom: "1px solid rgba(0,0,0,0.06)", paddingBottom: 20 }}>
-                  <p style={{ fontFamily: sans, fontSize: 10, fontWeight: 500, letterSpacing: 3, textTransform: "uppercase", color: "#aaa", marginBottom: 6 }}>{c.label}</p>
-                  <a href={c.href} target="_blank" rel="noopener noreferrer"
-                    style={{ fontFamily: serif, fontSize: 18, color: "#1a1a1a", textDecoration: "none" }}>{c.value}</a>
-                </div>
-              ))}
-            </div>
+
+          {/* General Enquiries */}
+          <div style={{ borderBottom: "1px solid rgba(0,0,0,0.06)", paddingBottom: 20 }}>
+            <p style={{ fontFamily: sans, fontSize: 10, fontWeight: 500, letterSpacing: 3, textTransform: "uppercase", color: "#aaa", marginBottom: 6 }}>General Enquiries</p>
+            <a href="mailto:4ddiej03@gmail.com" style={{ fontFamily: serif, fontSize: 18, color: "#1a1a1a", textDecoration: "none" }}>4ddiej03@gmail.com</a>
+          </div>
+
+          {/* Instagram — two separate links */}
+          <div style={{ borderBottom: "1px solid rgba(0,0,0,0.06)", paddingBottom: 20 }}>
+            <p style={{ fontFamily: sans, fontSize: 10, fontWeight: 500, letterSpacing: 3, textTransform: "uppercase", color: "#aaa", marginBottom: 6 }}>Instagram</p>
+            <a href="https://www.instagram.com/cheaf_cooklikeyouknow" target="_blank" rel="noopener noreferrer"
+              style={{ fontFamily: serif, fontSize: 18, color: "#1a1a1a", textDecoration: "none", display: "block", marginBottom: 6 }}>
+              @cheaf_cooklikeyouknow
+            </a>
+            <a href="https://www.instagram.com/mixr_shakewhatyouvegot" target="_blank" rel="noopener noreferrer"
+              style={{ fontFamily: serif, fontSize: 18, color: "#1a1a1a", textDecoration: "none", display: "block" }}>
+              @mixr_shakewhatyouvegot
+            </a>
+          </div>
+
+          {/* Che AF */}
+          <div style={{ borderBottom: "1px solid rgba(0,0,0,0.06)", paddingBottom: 20 }}>
+            <p style={{ fontFamily: sans, fontSize: 10, fontWeight: 500, letterSpacing: 3, textTransform: "uppercase", color: "#aaa", marginBottom: 6 }}>Che AF App</p>
+            <a href="https://che-af.vercel.app" target="_blank" rel="noopener noreferrer"
+              style={{ fontFamily: serif, fontSize: 18, color: "#1a1a1a", textDecoration: "none" }}>
+              che-af.vercel.app
+            </a>
+          </div>
+
+          {/* Mix-R */}
+          <div style={{ borderBottom: "1px solid rgba(0,0,0,0.06)", paddingBottom: 20 }}>
+            <p style={{ fontFamily: sans, fontSize: 10, fontWeight: 500, letterSpacing: 3, textTransform: "uppercase", color: "#aaa", marginBottom: 6 }}>Mix-R App</p>
+            <a href="https://mix-r.vercel.app" target="_blank" rel="noopener noreferrer"
+              style={{ fontFamily: serif, fontSize: 18, color: "#1a1a1a", textDecoration: "none" }}>
+              mix-r.vercel.app
+            </a>
+          </div>
+
+          {/* Plant Be */}
+          <div style={{ borderBottom: "1px solid rgba(0,0,0,0.06)", paddingBottom: 20 }}>
+            <p style={{ fontFamily: sans, fontSize: 10, fontWeight: 500, letterSpacing: 3, textTransform: "uppercase", color: "#aaa", marginBottom: 6 }}>Plant Be App <span style={{ color: "#7fb069" }}>· Beta</span></p>
+            <a href="https://plant-be.vercel.app" target="_blank" rel="noopener noreferrer"
+              style={{ fontFamily: serif, fontSize: 18, color: "#1a1a1a", textDecoration: "none" }}>
+              plant-be.vercel.app
+            </a>
+          </div>
+
+        </div>
           </div>
 
           <div style={{ background: "#fff", border: "1px solid rgba(0,0,0,0.06)", padding: 48 }}>
@@ -935,6 +1126,49 @@ export function ContactPage({ navigate }) {
 // ─── BLOG DATA — add new posts here ──────────────────────────────────────────
 
 export const BLOG_POSTS = [
+  
+    // ROMULUS & REMUS - AUCKLAND/
+  {
+    id: "romulus-remus-auckland",
+    title: "Romulus & Remus, Auckland",
+    subtitle: "An Italian journey that doesn't try too hard, yet gives you everything you need.",
+    date: "April 2026",
+    cuisine: "Italian",
+    city: "Auckland",
+    coverImage: "/blog-romulusremus.jpg",       // ← ADD THIS — put photo in public/
+    coverColor: "#fdf5f0",              // ← kept as fallback if photo missing
+    coverEmoji: "🇮🇹",
+    excerpt: "The beauty of balance: three starters, three mains, and three desserts—a logic that leaves no room for regret.",
+    body: `The room is huge, despite being underground. The counter is located just after the stairs. You can either grab a table or order first, your choice.
+
+From the moment we arrived, we were warmly greeted and shown to our reserved table. The menu is simple but perfectly curated, making it easy to decide. Following the "rule of three," we shared three appetisers, three mains, and three desserts—a suggestion that didn't disappoint! The cocktail and wine pairings were also spot on for our palates.
+
+After reading so many great reviews, our first visit truly lived up to the hype. Highlights included the salt-cured cod and the homemade focaccia, which paired beautifully with the burrata and smoked eggplant. However, the absolute star was the nine-layer lasagna—the rich tomato sauce and hint of pesto drizzle are incredible. Be sure to eat it while it’s piping hot!
+
+We finished with the airy tiramisu and a refreshing coconut lemon panna cotta. If you’re a fan of the classics, the chocolate-smothered profiteroles are a must. It was a simple yet talk-worthy journey through Italian cuisine. We’ll definitely be back for a second visit! 🤙
+`,
+  },
+    // CHOM NA THAI - AUCKLAND/
+  {
+    id: "chom-na-thai-auckland",
+    title: "Chom Na Thai, Auckland",
+    subtitle: "A home far from home cooking that bring tears of your mom's cooking",
+    date: "February 2026",
+    cuisine: "Thai",
+    city: "Auckland",
+    coverImage: "/blog-chomna.jpg",       // ← ADD THIS — put photo in public/
+    coverColor: "#fdf5f0",              // ← kept as fallback if photo missing
+    coverEmoji: "🇨🇷",
+    excerpt: "There is something about eating alone at a counter that strips away all pretence. No conversation to fill the silence, no one to share the dish with — just you, the steam rising from the bowl, and the quiet theatre of a kitchen that knows exactly what it is doing. Chom Na on Lorne Street is exactly that kind of place.",
+    body: `The room is huge, despite being underground. The counter is located just after the stairs. You can either grab a table or order first, your choice.
+
+I ordered the pad see ew beef. There was no real decision to make; if you are in a new place to eat and don’t know what to order, ALWAYS order the obvious. The noodles have the right amount of resistance. The flavour gives a memory of the street food. They don’t look fancy, but the taste is spot on.
+
+Chom Na does not try to be anything it is not. There is no elaborate décor, no cocktail list, no dessert menu. However, there are some in the fridge behind you. It is a restaurant that has decided, with complete confidence, that one thing done extraordinarily well is enough. And it is right.
+
+If you are in Auckland CBD and you have not been — go. Arrive there anytime around lunch, no need to wait, and do not bring anyone you need to talk to. This is food that deserves your full attention.`,
+  },
+    // KAZU JAPANESE - MONTREAL/
   {
     id: "kazu-montreal",
     title: "Kazu, Montreal",
@@ -954,6 +1188,7 @@ Kazu does not try to be anything it is not. There is no elaborate décor, no coc
 
 If you are in Montreal and you have not been — go. Arrive early, expect to wait, and do not bring anyone you need to talk to. This is food that deserves your full attention.`,
   },
+  // BANANA LEAF - VANCOUVER/
   {
     id: "banana-leaf-vancouver",
     title: "Banana Leaf, Vancouver",
@@ -961,13 +1196,35 @@ If you are in Montreal and you have not been — go. Arrive early, expect to wai
     date: "January 2024",
     cuisine: "Malaysian",
     city: "Vancouver",
-    coverImage: "/blog-banana-leaf.jpg", // ← ADD THIS
-    coverColor: "#f0f8f4",
+    coverImage: "/blog-banana-leaf.jpg", // ← ADD THIS — put photo in public/
+    coverColor: "#f0f8f4",            // ← kept as fallback if photo missing
     coverEmoji: "🍲",
     excerpt: "Vancouver has no shortage of good Asian food, but finding Malaysian cuisine that tastes genuinely Malaysian — not watered down, not westernised, not apologetic about its spice — is rarer than it should be. Banana Leaf on Broadway is one of the places that gets it right.",
     body: `We arrived on a Tuesday evening, which meant we got a table without waiting. The room is warm and unpretentious — wooden furniture, soft lighting, the kind of atmosphere that tells you immediately this is a place about the food, not the experience of being seen eating the food.
 
-The roti canai arrived first, flaky and yielding, with a dhal that had clearly been cooked slowly and with intention. We tore pieces and dragged them through the sauce and said very little to each other, which is always a good sign.
+The roti canai arrived first, flaky and yielding, with a vegetarian coconut curry sauce that had clearly been cooked slowly and with intention. We tore pieces and dragged them through the sauce and said very little to each other, which is always a good sign.
+
+The laksa that followed was the real centrepiece — coconut-rich, lemongrass-bright, with a heat that built gradually rather than announcing itself all at once. The prawns were generous. The noodles were the right texture. The sambal on the side was fiercer than it looked.
+
+What Banana Leaf does well is resist the temptation to explain itself. The menu does not have lengthy descriptions softening the edges of dishes that are supposed to have edges. The food arrives as it should — bold, fragrant, and completely sure of itself.
+
+I will be back before the month is out. I am already thinking about the curry.`,
+  },
+    // MAXINE CAFE - VANCOUVER/
+  {
+    id: "maxinecafe-vancouver",
+    title: "Maxine Cafe, Vancouver",
+    subtitle: "Brunch done with confidence: simple classics that hit the spot, best enjoyed with a summer breeze.",
+    date: "May 2023",
+    cuisine: "French",
+    city: "Vancouver",
+    coverImage: "/blog-maxinecafe.jpg", // ← ADD THIS — put photo in public/
+    coverColor: "#f0f8f4",            // ← kept as fallback if photo missing
+    coverEmoji: "🇲🇫",
+    excerpt: "Burrard Road has a lot of options, but Maxine’s is worth the stop.",
+    body: `We arrived on a Tuesday evening, which meant we got a table without waiting. The room is warm and unpretentious — wooden furniture, soft lighting, the kind of atmosphere that tells you immediately this is a place about the food, not the experience of being seen eating the food.
+
+The roti canai arrived first, flaky and yielding, with a vegetarian coconut curry sauce that had clearly been cooked slowly and with intention. We tore pieces and dragged them through the sauce and said very little to each other, which is always a good sign.
 
 The laksa that followed was the real centrepiece — coconut-rich, lemongrass-bright, with a heat that built gradually rather than announcing itself all at once. The prawns were generous. The noodles were the right texture. The sambal on the side was fiercer than it looked.
 
@@ -1178,7 +1435,7 @@ export function Footer({ navigate }) {
             <p style={{ fontFamily: sans, fontSize: 10, fontWeight: 500, letterSpacing: 3, textTransform: "uppercase", color: "#555", marginBottom: 20 }}>Connect</p>
             <a href="https://www.instagram.com/cheaf_cooklikeyouknow" target="_blank" rel="noopener noreferrer"
               style={{ display: "block", fontFamily: sans, fontSize: 14, color: "rgba(245,240,232,0.5)", marginBottom: 12, textDecoration: "none" }}>Instagram</a>
-            <a href="mailto:support@che-af.vercel.app"
+            <a href="mailto:4ddiej03@gmail.com"
               style={{ display: "block", fontFamily: sans, fontSize: 14, color: "rgba(245,240,232,0.5)", marginBottom: 12, textDecoration: "none" }}>Email</a>
           </div>
         </div>
