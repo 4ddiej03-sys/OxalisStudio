@@ -1111,7 +1111,7 @@ export function ContactPage({ navigate }) {
                 <label style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 2, textTransform: "uppercase", color: "#aaa", display: "block", marginBottom: 8 }}>Message</label>
                 <textarea rows={5} style={{ width: "100%", padding: "14px 0", border: "none", borderBottom: "1px solid rgba(0,0,0,0.12)", fontFamily: sans, fontSize: 15, outline: "none", background: "transparent", resize: "none", boxSizing: "border-box" }} placeholder="Tell us about your project…" />
               </div>
-              <a href="mailto:support@che-af.vercel.app"
+              <a href="mailto:4ddiej03@gmail.com"
                 style={{ fontFamily: sans, fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", background: "#1a1a1a", color: "#fff", padding: "18px", textDecoration: "none", textAlign: "center", display: "block", marginTop: 8 }}>
                 Send Message →
               </a>
