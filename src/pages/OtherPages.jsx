@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import React, { useState, useRef } from 'react'
 
 //import appPhoto from from '../assets/app-profile.jpg' <- when the photo box is ready, delete this line!
 import publicationPhoto from '../assets/publication-profile.jpg'
@@ -219,6 +219,8 @@ export function APPPage({ navigate }) {
   );
 }
 
+// ─── PUBLICATION Page ─────────────────────────────────────────────────────────────────
+
 // src/pages/PublicationPage.jsx
 
 export function PublicationPage({ navigate }) {
@@ -338,7 +340,7 @@ export function PublicationPage({ navigate }) {
   );
 }
 
-
+// ─── SHOHEI JUKU AIKIDO CANADA Page ─────────────────────────────────────────────────────────────────
 
 // src/pages/SJACPage.jsx
 
@@ -460,6 +462,8 @@ export function SJACPage({ navigate }) {
   );
 }
 
+// ─── ADDIE+ Page ─────────────────────────────────────────────────────────────────
+
 // src/pages/AddiePage.jsx
 
 export function AddiePage({ navigate }) {
@@ -552,14 +556,15 @@ export function AddiePage({ navigate }) {
           <h2 style={{ fontFamily: serif, fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 300, color: "#f5f0e8", lineHeight: 1, marginBottom: 72 }}>
             Chomna Thai<br /><em style={{ fontStyle: "italic", fontWeight: 700, fontSize: 24 }}>Thai Cuisine</em>
           </h2>
-          <p style={{ fontFamily: sans, fontSize: 16, color: "#f5f0e8", lineHeight: 1.9, marginBottom: 24 }}>
+          <p style={{ fontFamily: serif, fontSize: 24, color: "#f5f0e8", lineHeight: 1.9, marginBottom: 24 }}>
               We hope that what we write here will bring you joy in reading and motivate you to get up, rush to these places, and experience the beautifully prepared food at your table.
             </p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 2, background: "rgba(255,255,255,0.04)" }}>
             {[
               { title: "Kazu", desc: "Montreal, Japanese."},
-              { title: "Momofuku", desc: "Toronto, Fusion."},
-              { title: "Delara", desc: "Vancouver, Persian."}
+              { title: "Banana Leaf", desc: "Vancouver, Malaysian."},
+              { title: "Chom Na", desc: "Auckland, Thai."},
+              
               
               
             ].map((v, i) => (
@@ -681,6 +686,8 @@ function GridItem({ item, index }) {
 
 // ─── GridItem (for JadorePage videos) END ───────────────────────────────────────
 //-------------------------------------------------------------------------------------------------------
+
+// ─── JADORE BY JOE Page ─────────────────────────────────────────────────────────────────
 
 // src/pages/JadorePage.jsx
 export function JadorePage({ navigate }) {
@@ -926,6 +933,7 @@ export function AboutPage({ navigate }) {
   );
 }
 
+// ─── SKILLS Page ─────────────────────────────────────────────────────────────────
 
 // src/pages/SkillsPage.jsx
 export function SkillsPage({ navigate }) {
@@ -1012,6 +1020,8 @@ export function SkillsPage({ navigate }) {
     </div>
   );
 }
+
+// ─── CONTACT Page ─────────────────────────────────────────────────────────────────
 
 // src/pages/ContactPage.jsx
 export function ContactPage({ navigate }) {
@@ -1123,6 +1133,7 @@ export function ContactPage({ navigate }) {
   );
 }
 
+// ─── BLOG Page ─────────────────────────────────────────────────────────────────
 // ─── BLOG DATA — add new posts here ──────────────────────────────────────────
 
 export const BLOG_POSTS = [
