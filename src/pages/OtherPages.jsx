@@ -1062,7 +1062,10 @@ export function ContactPage({ navigate }) {
             <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
               <div style={{ borderBottom: "1px solid rgba(0,0,0,0.06)", paddingBottom: 20 }}>
                 <p style={{ fontFamily: sans, fontSize: 10, fontWeight: 500, letterSpacing: 3, textTransform: "uppercase", color: "#aaa", marginBottom: 6 }}>General Enquiries</p>
-                <a href="mailto:4ddiej03@gmail.com" style={{ fontFamily: serif, fontSize: 18, color: "#1a1a1a", textDecoration: "none" }}>4ddiej03@gmail.com</a>
+                <a href="mailto:4ddiej03@gmail.com"
+  style={{ fontFamily: sans, fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", background: "#1a1a1a", color: "#fff", padding: "18px", textDecoration: "none", textAlign: "center", display: "block", marginTop: 8 }}>
+  Send Message →
+</a>
               </div>
               <div style={{ borderBottom: "1px solid rgba(0,0,0,0.06)", paddingBottom: 20 }}>
                 <p style={{ fontFamily: sans, fontSize: 10, fontWeight: 500, letterSpacing: 3, textTransform: "uppercase", color: "#aaa", marginBottom: 6 }}>Instagram</p>
