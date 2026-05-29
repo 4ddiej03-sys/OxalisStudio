@@ -65,10 +65,10 @@ export function APPPage({ navigate }) {
             <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 48 }}>
               Both apps are live and growing — with Pioneer membership, Stripe payments, Supabase cloud sync and Claude AI at their core.
             </p>
-            <a href="mailto:4ddiej03@gmail.com"
-              style={{ fontFamily: sans, fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: "#1a1a1a", textDecoration: "none", borderBottom: "1px solid #1a1a1a", paddingBottom: 4 }}>
-              Get in Touch →
-            </a>
+            <button onClick={() => navigate("contact")}
+                style={{ fontFamily: sans, fontSize: 13, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", background: "transparent", color: "#1a1a1a", border: "1px solid #1a1a1a", padding: "16px 36px", cursor: "pointer" }}>
+                Get in Touch
+            </button>
           </div>
 
           {/* RIGHT — Che AF + Mix-R logos filling the white space */}
@@ -259,10 +259,10 @@ export function PublicationPage({ navigate }) {
             <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 48 }}>
               OXALIS Studio’s latest project was born from a frustration with food waste and a love of cooking. Che AF and Mix-R are the result: two AI-powered apps that help people cook and mix drinks from what they already have.
             </p>
-            <a href="mailto:4ddiej03@gmail.com"
-              style={{ fontFamily: sans, fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: "#1a1a1a", textDecoration: "none", borderBottom: "1px solid #1a1a1a", paddingBottom: 4 }}>
-              Get in Touch →
-            </a>
+            <button onClick={() => navigate("contact")}
+                style={{ fontFamily: sans, fontSize: 13, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", background: "transparent", color: "#1a1a1a", border: "1px solid #1a1a1a", padding: "16px 36px", cursor: "pointer" }}>
+                Get in Touch
+            </button>
           </div>
 
           <div>
@@ -380,10 +380,10 @@ export function SJACPage({ navigate }) {
             <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 48 }}>
               Creating shorts videos during pandemic promo to bring harmony of practice of non-contact basic principle.
             </p>
-            <a href="mailto:4ddiej03@gmail.com"
-              style={{ fontFamily: sans, fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: "#1a1a1a", textDecoration: "none", borderBottom: "1px solid #1a1a1a", paddingBottom: 4 }}>
-              Get in Touch →
-            </a>
+            <button onClick={() => navigate("contact")}
+                style={{ fontFamily: sans, fontSize: 13, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", background: "transparent", color: "#1a1a1a", border: "1px solid #1a1a1a", padding: "16px 36px", cursor: "pointer" }}>
+                Get in Touch
+            </button>
           </div>
 
           <div>
@@ -515,10 +515,10 @@ export function AddiePage({ navigate }) {
                   Read the Blog →
             </button>
 
-            <a href="mailto:4ddiej03@gmail.com"
-              style={{ fontFamily: sans, fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: "#1a1a1a", textDecoration: "none", borderBottom: "1px solid #1a1a1a", paddingBottom: 4 }}>
-                  Get in Touch →
-            </a>
+            <button onClick={() => navigate("contact")}
+                style={{ fontFamily: sans, fontSize: 13, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", background: "transparent", color: "#1a1a1a", border: "1px solid #1a1a1a", padding: "16px 36px", cursor: "pointer" }}>
+                Get in Touch
+            </button>
           </div>
 
           <div>
@@ -727,10 +727,10 @@ export function JadorePage({ navigate }) {
             <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 48 }}>
               We let the nature provide as our studio and the beautiful weather as our lighting.
             </p>
-            <a href="mailto:s1mply1rr3s1st4bl3@gmail.com"
-              style={{ fontFamily: sans, fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: "#1a1a1a", textDecoration: "none", borderBottom: "1px solid #1a1a1a", paddingBottom: 4 }}>
-              Get in Touch →
-            </a>
+            <button onClick={() => navigate("contact")}
+                style={{ fontFamily: sans, fontSize: 13, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", background: "transparent", color: "#1a1a1a", border: "1px solid #1a1a1a", padding: "16px 36px", cursor: "pointer" }}>
+                Get in Touch
+            </button>
           </div>
 
           <div>
@@ -873,10 +873,10 @@ export function AboutPage({ navigate }) {
             <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 48 }}>
               OXALIS STUDIO exists to create work that connects visually, functionally, and culturally — helping businesses launch, evolve, and grow with intention.
             </p>
-            <a href="mailto:4ddiej03@gmail.com"
-              style={{ fontFamily: sans, fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: "#1a1a1a", textDecoration: "none", borderBottom: "1px solid #1a1a1a", paddingBottom: 4 }}>
-              Get in Touch →
-            </a>
+            <button onClick={() => navigate("contact")}
+                style={{ fontFamily: sans, fontSize: 13, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", background: "transparent", color: "#1a1a1a", border: "1px solid #1a1a1a", padding: "16px 36px", cursor: "pointer" }}>
+                Get in Touch
+            </button>
           </div>
 
           {/* RIGHT — photo + stats */}
@@ -1027,122 +1027,42 @@ export function SkillsPage({ navigate }) {
 export function ContactPage({ navigate }) {
   const serif = "'Cormorant Garamond', Georgia, serif";
   const sans  = "'DM Sans', system-ui, sans-serif";
-  const [status, setStatus] = useState("idle");
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    setStatus("sending");
-    try {
-      const res = await fetch("https://formspree.io/f/mgodbnol", {
-        method: "POST",
-        body: new FormData(e.target),
-        headers: { Accept: "application/json" },
-      });
-      if (res.ok) { setStatus("success"); e.target.reset(); }
-      else { setStatus("error"); }
-    } catch (_) { setStatus("error"); }
-  }
+  const CONTACTS = [
+    { icon: "✉️", label: "Email", value: "4ddiej03@gmail.com", href: "mailto:4ddiej03@gmail.com" },
+    { icon: "📸", label: "Instagram — Che AF", value: "@cheaf_cooklikeyouknow", href: "https://www.instagram.com/cheaf_cooklikeyouknow"},
+    { icon: "📸", label: "Instagram — Mix-R", value: "@mixr_shakewhatyouvegot", href: "https://www.instagram.com/mixr_shakewhatyouvegot" },
+    { icon: "🍳", label: "Che AF App", value: "che-af.vercel.app", href: "https://che-af.vercel.app", desc: "AI recipe — Cook Like You Know" },
+    { icon: "🍹", label: "Mix-R App", value: "mix-r.vercel.app", href: "https://mix-r.vercel.app", desc: "AI cocktail — Shake What You've Got" },
+    { icon: "🌿", label: "Plant Be", value: "plant-be.vercel.app", href: "https://plant-be.vercel.app", desc: "AI plant scanner — Beta" },
+  ];
 
   return (
     <div style={{ paddingTop: 72 }}>
       <section style={{ padding: "100px 40px", background: "#fafaf8", minHeight: "80vh" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 100, alignItems: "start" }}>
+        <div style={{ maxWidth: 900, margin: "0 auto" }}>
 
-          {/* LEFT */}
-          <div>
-            <p style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 4, textTransform: "uppercase", color: "#888", marginBottom: 16 }}>Contact</p>
-            <h1 style={{ fontFamily: serif, fontSize: "clamp(40px, 5vw, 72px)", fontWeight: 300, color: "#1a1a1a", lineHeight: 0.95, marginBottom: 40 }}>
-              Let's create<br /><em style={{ fontStyle: "italic", fontWeight: 700 }}>something.</em>
-            </h1>
-            <div style={{ width: 60, height: 1, background: "#1a1a1a", marginBottom: 40 }} />
-            <p style={{ fontFamily: sans, fontSize: 16, color: "#666", lineHeight: 1.9, marginBottom: 48 }}>
-              Whether you have a project in mind, want to collaborate, or just want to say hello, we'd love to hear from you. Every great project starts with a conversation.
-            </p>
+          <p style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 4, textTransform: "uppercase", color: "#888", marginBottom: 16 }}>Contact</p>
+          <h1 style={{ fontFamily: serif, fontSize: "clamp(40px, 5vw, 72px)", fontWeight: 300, color: "#1a1a1a", lineHeight: 0.95, marginBottom: 24 }}>
+            Let's create<br /><em style={{ fontStyle: "italic", fontWeight: 700 }}>something.</em>
+          </h1>
+          <div style={{ width: 60, height: 1, background: "#1a1a1a", marginBottom: 40 }} />
+          <p style={{ fontFamily: sans, fontSize: 18, color: "#666", lineHeight: 1.9, marginBottom: 72, maxWidth: 600 }}>
+            Whether you have a project in mind, want to collaborate, or just want to say hello — we'd love to hear from you. Every great project starts with a conversation.
+          </p>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-              <div style={{ borderBottom: "1px solid rgba(0,0,0,0.06)", paddingBottom: 20 }}>
-                <p style={{ fontFamily: sans, fontSize: 10, fontWeight: 500, letterSpacing: 3, textTransform: "uppercase", color: "#aaa", marginBottom: 6 }}>General Enquiries</p>
-                <a href={c.href} target="_blank" rel="noopener noreferrer"
-                    style={{ fontFamily: serif, fontSize: 18, color: "#1a1a1a", textDecoration: "none" }}>{c.value}</a>
-              </div>
-              <div style={{ borderBottom: "1px solid rgba(0,0,0,0.06)", paddingBottom: 20 }}>
-                <p style={{ fontFamily: sans, fontSize: 10, fontWeight: 500, letterSpacing: 3, textTransform: "uppercase", color: "#aaa", marginBottom: 6 }}>Instagram</p>
-                <a href="https://www.instagram.com/cheaf_cooklikeyouknow" target="_blank" rel="noopener noreferrer"
-                  style={{ fontFamily: serif, fontSize: 18, color: "#1a1a1a", textDecoration: "none", display: "block", marginBottom: 6 }}>@cheaf_cooklikeyouknow</a>
-                <a href="https://www.instagram.com/mixr_shakewhatyouvegot" target="_blank" rel="noopener noreferrer"
-                  style={{ fontFamily: serif, fontSize: 18, color: "#1a1a1a", textDecoration: "none", display: "block" }}>@mixr_shakewhatyouvegot</a>
-              </div>
-              <div style={{ borderBottom: "1px solid rgba(0,0,0,0.06)", paddingBottom: 20 }}>
-                <p style={{ fontFamily: sans, fontSize: 10, fontWeight: 500, letterSpacing: 3, textTransform: "uppercase", color: "#aaa", marginBottom: 6 }}>Che AF App</p>
-                <a href="https://che-af.vercel.app" target="_blank" rel="noopener noreferrer" style={{ fontFamily: serif, fontSize: 18, color: "#1a1a1a", textDecoration: "none" }}>che-af.vercel.app</a>
-              </div>
-              <div style={{ borderBottom: "1px solid rgba(0,0,0,0.06)", paddingBottom: 20 }}>
-                <p style={{ fontFamily: sans, fontSize: 10, fontWeight: 500, letterSpacing: 3, textTransform: "uppercase", color: "#aaa", marginBottom: 6 }}>Mix-R App</p>
-                <a href="https://mix-r.vercel.app" target="_blank" rel="noopener noreferrer" style={{ fontFamily: serif, fontSize: 18, color: "#1a1a1a", textDecoration: "none" }}>mix-r.vercel.app</a>
-              </div>
-              <div style={{ paddingBottom: 20 }}>
-                <p style={{ fontFamily: sans, fontSize: 10, fontWeight: 500, letterSpacing: 3, textTransform: "uppercase", color: "#aaa", marginBottom: 6 }}>Plant Be <span style={{ color: "#7fb069" }}>· Beta</span></p>
-                <a href="https://plant-be.vercel.app" target="_blank" rel="noopener noreferrer" style={{ fontFamily: serif, fontSize: 18, color: "#1a1a1a", textDecoration: "none" }}>plant-be.vercel.app</a>
-              </div>
-            </div>
-          </div>
-
-          {/* RIGHT — working form */}
-          <div style={{ background: "#fff", border: "1px solid rgba(0,0,0,0.06)", padding: 48 }}>
-            <h2 style={{ fontFamily: serif, fontSize: 32, fontWeight: 600, color: "#1a1a1a", marginBottom: 8 }}>Send a message</h2>
-            <p style={{ fontFamily: sans, fontSize: 13, color: "#aaa", marginBottom: 32 }}>We respond within 2 business days.</p>
-
-            {status === "success" && (
-              <div style={{ background: "#f0fff4", border: "1px solid #9ae6b4", borderRadius: 10, padding: "14px 18px", marginBottom: 24 }}>
-                <p style={{ fontFamily: sans, fontSize: 14, color: "#276749", fontWeight: 600, margin: 0 }}>✅ Message sent! We'll be in touch soon.</p>
-              </div>
-            )}
-            {status === "error" && (
-              <div style={{ background: "#fff5f5", border: "1px solid #fed7d7", borderRadius: 10, padding: "14px 18px", marginBottom: 24 }}>
-                <p style={{ fontFamily: sans, fontSize: 14, color: "#e53e3e", fontWeight: 600, margin: 0 }}>❌ Something went wrong. Email us at 4ddiej03@gmail.com</p>
-              </div>
-            )}
-
-            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-                <div>
-                  <label style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 2, textTransform: "uppercase", color: "#aaa", display: "block", marginBottom: 8 }}>Name *</label>
-                  <input name="name" required placeholder="Your name"
-                    style={{ width: "100%", padding: "14px 0", border: "none", borderBottom: "1px solid rgba(0,0,0,0.12)", fontFamily: sans, fontSize: 15, outline: "none", background: "transparent", boxSizing: "border-box" }} />
-                </div>
-                <div>
-                  <label style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 2, textTransform: "uppercase", color: "#aaa", display: "block", marginBottom: 8 }}>Email *</label>
-                  <input name="email" type="email" required placeholder="your@email.com"
-                    style={{ width: "100%", padding: "14px 0", border: "none", borderBottom: "1px solid rgba(0,0,0,0.12)", fontFamily: sans, fontSize: 15, outline: "none", background: "transparent", boxSizing: "border-box" }} />
-                </div>
-              </div>
-              <div>
-                <label style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 2, textTransform: "uppercase", color: "#aaa", display: "block", marginBottom: 8 }}>Project Type</label>
-                <select name="project_type"
-                  style={{ width: "100%", padding: "14px 0", border: "none", borderBottom: "1px solid rgba(0,0,0,0.12)", fontFamily: sans, fontSize: 15, outline: "none", background: "transparent", cursor: "pointer" }}>
-                  <option>App Development</option>
-                  <option>Brand Identity</option>
-                  <option>UI/UX Design</option>
-                  <option>Advertising</option>
-                  <option>Creative Direction</option>
-                  <option>Photography</option>
-                  <option>Food & Drink Content</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <div>
-                <label style={{ fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: 2, textTransform: "uppercase", color: "#aaa", display: "block", marginBottom: 8 }}>Message *</label>
-                <textarea name="message" required rows={5} placeholder="Tell us about your project…"
-                  style={{ width: "100%", padding: "14px 0", border: "none", borderBottom: "1px solid rgba(0,0,0,0.12)", fontFamily: sans, fontSize: 15, outline: "none", background: "transparent", resize: "none", boxSizing: "border-box" }} />
-              </div>
-              <button type="submit" disabled={status === "sending"}
-                style={{ padding: "18px", background: status === "sending" ? "#999" : "#1a1a1a", color: "#fff", fontFamily: sans, fontWeight: 600, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", border: "none", cursor: status === "sending" ? "not-allowed" : "pointer" }}>
-                {status === "sending" ? "Sending…" : "Send Message →"}
-              </button>
-              <p style={{ fontFamily: sans, fontSize: 11, color: "#aaa", textAlign: "center", margin: 0 }}>
-                Your message goes directly to our inbox. We never share your details.
-              </p>
-            </form>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 2, background: "rgba(0,0,0,0.04)" }}>
+            {CONTACTS.map((c, i) => (
+              <a key={i} href={c.href} target={c.href.startsWith("mailto") ? "_self" : "_blank"} rel="noopener noreferrer"
+                style={{ background: "#fafaf8", padding: "32px 28px", textDecoration: "none", display: "block" }}
+                onMouseEnter={e => e.currentTarget.style.background = "#fff"}
+                onMouseLeave={e => e.currentTarget.style.background = "#fafaf8"}>
+                <span style={{ fontSize: 28, display: "block", marginBottom: 16 }}>{c.icon}</span>
+                <p style={{ fontFamily: sans, fontSize: 10, fontWeight: 600, letterSpacing: 3, textTransform: "uppercase", color: "#aaa", marginBottom: 8 }}>{c.label}</p>
+                <p style={{ fontFamily: serif, fontSize: 18, fontWeight: 600, color: "#1a1a1a", marginBottom: 8 }}>{c.value}</p>
+                <p style={{ fontFamily: sans, fontSize: 13, color: "#999", lineHeight: 1.6 }}>{c.desc}</p>
+              </a>
+            ))}
           </div>
 
         </div>
