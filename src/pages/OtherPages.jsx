@@ -1172,15 +1172,9 @@ I will be back before the month is out. I am already thinking about the curry.`,
     coverColor: "#f0f8f4",            // ← kept as fallback if photo missing
     coverEmoji: "🇲🇫",
     excerpt: "Burrard Road has a lot of options, but Maxine’s is worth the stop.",
-    body: `We arrived on a Tuesday evening, which meant we got a table without waiting. The room is warm and unpretentious — wooden furniture, soft lighting, the kind of atmosphere that tells you immediately this is a place about the food, not the experience of being seen eating the food.
-
-The roti canai arrived first, flaky and yielding, with a vegetarian coconut curry sauce that had clearly been cooked slowly and with intention. We tore pieces and dragged them through the sauce and said very little to each other, which is always a good sign.
-
-The laksa that followed was the real centrepiece — coconut-rich, lemongrass-bright, with a heat that built gradually rather than announcing itself all at once. The prawns were generous. The noodles were the right texture. The sambal on the side was fiercer than it looked.
-
-What Banana Leaf does well is resist the temptation to explain itself. The menu does not have lengthy descriptions softening the edges of dishes that are supposed to have edges. The food arrives as it should — bold, fragrant, and completely sure of itself.
-
-I will be back before the month is out. I am already thinking about the curry.`,
+    body: `Luck was on our side getting a seat on the patio. A summer breeze is only complete with an iced latte or chocolate to start.
+We went for the Maxine Smash Burger (added bacon, obviously) and Maxine’s Breakfast. If you’re after a classic B.L.T. vibe but with a crispy potato twist, this is it. The burger was a delight—light on the patty, soft on the brioche, with cheddar melted into every corner and crisp lettuce for that essential crunch. A shame the fries lacked that same crispiness.
+We closed the session with the Moon Pie. Soft pastry, light crust, and a caramel cream filling that just works. If you’re passing Burrard Road, pop in. Even for happy hour.`,
   },
 ];
 
