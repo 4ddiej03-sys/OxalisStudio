@@ -1173,7 +1173,10 @@ I will be back before the month is out. I am already thinking about the curry.`,
     coverEmoji: "🇲🇫",
     excerpt: "Burrard Road has a lot of options, but Maxine’s is worth the stop.",
     body: `Luck was on our side getting a seat on the patio. A summer breeze is only complete with an iced latte or chocolate to start.
-We went for the Maxine Smash Burger (added bacon, obviously) and Maxine’s Breakfast. If you’re after a classic B.L.T. vibe but with a crispy potato twist, this is it. The burger was a delight—light on the patty, soft on the brioche, with cheddar melted into every corner and crisp lettuce for that essential crunch. A shame the fries lacked that same crispiness.
+We went for the Maxine Smash Burger (added bacon, obviously) and Maxine’s Breakfast.
+
+If you’re after a classic B.L.T. vibe but with a crispy potato twist, this is it. The burger was a delight—light on the patty, soft on the brioche, with cheddar melted into every corner and crisp lettuce for that essential crunch. A shame the fries lacked that same crispiness.
+
 We closed the session with the Moon Pie. Soft pastry, light crust, and a caramel cream filling that just works. If you’re passing Burrard Road, pop in. Even for happy hour.`,
   },
 ];
