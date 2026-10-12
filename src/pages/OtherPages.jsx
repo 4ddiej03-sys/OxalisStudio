@@ -423,12 +423,12 @@ export function SJACPage({ navigate }) {
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 4 }}>
             {[
-              { title: "Newsletter", desc: "Newsletter Design produced monthly. Special event photography"},
-              { title: "Photography", desc: "A branding project for burger joint in Hasting Sunrise, Vancouver."},
-              { title: "Poster", desc: "A magazine for Women to empowered Women."},
-              { title: "Promo", desc: "A collection of stories from musicians to inspire other musicians."},
-              { title: "Cover Design", desc: "Book cover redesign for The Arabian Nights"},
-              { title: "Aotearoa Tours", desc: "A travel magazine guide of travelling New Zealand."}
+              { title: "Newsletter", desc: "Monthly publication design highlighting community updates, featuring special event photography, and bridging communication for readers between Japan and Canada."},
+              { title: "Photography", desc: "Archival Documentation: Documenting key dojo events and milestones to build and maintain a comprehensive visual and historical archive for the organization."},
+              { title: "Poster", desc: "Designing creative promotional posters for upcoming dojo events, tailored to engage the community and attract new practitioners."},
+              { title: "Video", desc: "Capturing the energy of regular classes, special seminars, and festival demonstrations through video to support social media outreach and community advertising."},
+              { title: "Promo Design", desc: "Designing promotional brochures and visual collateral to effectively communicate the dojo's programs and community offerings."},
+              { title: "", desc: ""}
 
             ].map((v, i) => (
               <div key={i} style={{ padding: "48px 40px", background: "#1a1a1a" }}>
